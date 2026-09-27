@@ -4,633 +4,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DriveDeal - Buy Smart. Sell Smart.</title>
+<title>DriveDeal - Buy & Sell Cars</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-  background:#f5f7fa;
-  color:#111827;
-  padding-bottom:75px;
-}
-
-button,input,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-header{
-  background:#111827;
-  color:white;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:800;
-  color:#ff3b30;
-}
-
-.desktop-nav{
-  display:flex;
-  gap:20px;
-  align-items:center;
-}
-
-.desktop-nav button{
-  background:none;
-  border:0;
-  color:white;
-  font-weight:bold;
-}
-
-.login-btn{
-  background:white;
-  color:#111827;
-  border:0;
-  padding:9px 15px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.hero{
-  background:#111827;
-  color:white;
-  padding:55px 20px;
-  text-align:center;
-}
-
-.hero h1{
-  font-size:40px;
-  margin-bottom:12px;
-}
-
-.hero p{
-  color:#d1d5db;
-  font-size:17px;
-  margin-bottom:25px;
-}
-
-.hero-search{
-  background:white;
-  max-width:700px;
-  margin:auto;
-  padding:12px;
-  border-radius:14px;
-  display:flex;
-  gap:10px;
-}
-
-.hero-search input{
-  flex:1;
-  border:1px solid #ddd;
-  border-radius:9px;
-  padding:14px;
-  outline:none;
-}
-
-.red-btn{
-  background:#ff3b30;
-  color:white;
-  border:0;
-  border-radius:9px;
-  padding:13px 20px;
-  font-weight:bold;
-}
-
-.section{
-  max-width:1150px;
-  margin:auto;
-  padding:35px 20px;
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
-}
-
-.section-title h2{
-  font-size:25px;
-}
-
-.search-panel{
-  background:white;
-  padding:15px;
-  border-radius:14px;
-  box-shadow:0 2px 10px rgba(0,0,0,.05);
-  margin-bottom:20px;
-}
-
-.search-panel input{
-  width:100%;
-  padding:14px;
-  border:1px solid #ddd;
-  border-radius:9px;
-  outline:none;
-}
-
-.filter-row{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:10px;
-}
-
-.filter-row select{
-  padding:11px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  background:white;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-}
-
-.card{
-  background:white;
-  border-radius:15px;
-  padding:15px;
-  box-shadow:0 3px 14px rgba(0,0,0,.08);
-  position:relative;
-}
-
-.car-image{
-  height:170px;
-  background:linear-gradient(135deg,#e5e7eb,#f9fafb);
-  border-radius:11px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:60px;
-  margin-bottom:15px;
-}
-
-.card h3{
-  margin-bottom:7px;
-}
-
-.price{
-  color:#ff3b30;
-  font-size:21px;
-  font-weight:bold;
-  margin:8px 0;
-}
-
-.details{
-  color:#6b7280;
-  font-size:14px;
-  line-height:1.6;
-  margin-bottom:12px;
-}
-
-.card-actions{
-  display:flex;
-  gap:8px;
-}
-
-.dark-btn{
-  flex:1;
-  padding:11px;
-  background:#111827;
-  color:white;
-  border:0;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.save-btn{
-  width:45px;
-  border:1px solid #ddd;
-  background:white;
-  border-radius:8px;
-  font-size:20px;
-}
-
-.badge{
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:20px;
-  background:#dcfce7;
-  color:#166534;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-
-.feature{
-  background:white;
-  padding:22px;
-  border-radius:14px;
-  box-shadow:0 2px 10px rgba(0,0,0,.05);
-}
-
-.feature-icon{
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.feature h3{
-  margin-bottom:8px;
-}
-
-.sell-box{
-  background:#111827;
-  color:white;
-  padding:35px 25px;
-  border-radius:16px;
-  text-align:center;
-}
-
-.sell-box p{
-  color:#d1d5db;
-  margin-top:10px;
-}
-
-.sell-btn{
-  margin-top:20px;
-  padding:13px 25px;
-  background:#ff3b30;
-  color:white;
-  border:0;
-  border-radius:9px;
-  font-weight:bold;
-}
-
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
-}
-
-.detail-top{
-  display:grid;
-  grid-template-columns:1.1fr 1fr;
-  gap:25px;
-}
-
-.detail-photo{
-  background:linear-gradient(135deg,#dbeafe,#f3f4f6);
-  border-radius:16px;
-  min-height:360px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:110px;
-}
-
-.detail-info{
-  background:white;
-  border-radius:16px;
-  padding:25px;
-  box-shadow:0 3px 15px rgba(0,0,0,.07);
-}
-
-.detail-info h1{
-  margin-bottom:8px;
-}
-
-.big-price{
-  color:#ff3b30;
-  font-size:30px;
-  font-weight:bold;
-  margin:15px 0;
-}
-
-.spec-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin:18px 0;
-}
-
-.spec{
-  background:#f5f7fa;
-  padding:12px;
-  border-radius:9px;
-}
-
-.spec small{
-  display:block;
-  color:#6b7280;
-  margin-bottom:4px;
-}
-
-.action-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-
-.action-grid button{
-  padding:13px;
-  border:0;
-  border-radius:9px;
-  font-weight:bold;
-}
-
-.primary{
-  background:#ff3b30;
-  color:white;
-}
-
-.secondary{
-  background:#111827;
-  color:white;
-}
-
-.white-btn{
-  background:white;
-  border:1px solid #ddd !important;
-}
-
-.score-box{
-  background:white;
-  border-radius:16px;
-  padding:25px;
-  margin-top:20px;
-}
-
-.score-main{
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.score-number{
-  font-size:50px;
-  font-weight:bold;
-  color:#16a34a;
-}
-
-.score-bar{
-  height:10px;
-  background:#e5e7eb;
-  border-radius:10px;
-  overflow:hidden;
-  margin-top:6px;
-}
-
-.score-fill{
-  height:100%;
-  background:#16a34a;
-}
-
-.score-row{
-  margin-bottom:15px;
-}
-
-.score-label{
-  display:flex;
-  justify-content:space-between;
-  font-size:14px;
-}
-
-.passport{
-  background:white;
-  border-radius:16px;
-  padding:25px;
-  margin-top:20px;
-}
-
-.doc-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 0;
-  border-bottom:1px solid #eee;
-}
-
-.doc-ok{
-  color:#16a34a;
-  font-weight:bold;
-}
-
-.smart-price{
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  padding:20px;
-  border-radius:14px;
-  margin-top:20px;
-}
-
-.smart-price h3{
-  margin-bottom:8px;
-}
-
-.range{
-  font-size:25px;
-  font-weight:bold;
-  color:#c2410c;
-  margin:10px 0;
-}
-
-.form-box{
-  max-width:700px;
-  margin:auto;
-  background:white;
-  padding:25px;
-  border-radius:16px;
-  box-shadow:0 3px 15px rgba(0,0,0,.07);
-}
-
-.form-group{
-  margin-bottom:15px;
-}
-
-.form-group label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:6px;
-}
-
-.form-group input,
-.form-group select{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:9px;
-}
-
-.offer-box{
-  max-width:550px;
-  margin:auto;
-  background:white;
-  padding:25px;
-  border-radius:16px;
-  box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-.offer-history{
-  margin-top:20px;
-}
-
-.offer-item{
-  padding:15px;
-  background:#f5f7fa;
-  border-radius:10px;
-  margin-bottom:10px;
-}
-
-.amount-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin:15px 0;
-}
-
-.amount-btn{
-  padding:12px;
-  background:white;
-  border:1px solid #ddd;
-  border-radius:8px;
-}
-
-.message-card{
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  margin-bottom:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-
-.profile-card{
-  background:white;
-  padding:25px;
-  border-radius:16px;
-  text-align:center;
-  max-width:500px;
-  margin:auto;
-}
-
-.avatar{
-  width:80px;
-  height:80px;
-  background:#111827;
-  color:white;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:35px;
-  margin:0 auto 15px;
-}
-
-.disclaimer{
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  padding:15px;
-  border-radius:10px;
-  color:#7c2d12;
-  font-size:13px;
-  line-height:1.5;
-  margin-top:20px;
-}
-
-footer{
-  background:#111827;
-  color:#aaa;
-  text-align:center;
-  padding:25px;
-  margin-top:30px;
-}
-
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:white;
-  border-top:1px solid #ddd;
-  display:flex;
-  justify-content:space-around;
-  padding:10px 3px;
-  z-index:200;
-}
-
-.bottom-nav button{
-  background:none;
-  border:0;
-  font-size:12px;
-  color:#374151;
-}
-
-.bottom-nav span{
-  display:block;
-  font-size:20px;
-}
-
-.empty{
-  text-align:center;
-  padding:30px;
-  color:#6b7280;
-  grid-column:1/-1;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f6f8;color:#171717}
+header{background:#111;color:white;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:#e53935}
+nav{display:flex;gap:15px}
+nav button{background:none;border:0;color:white;font-weight:bold}
+.page{display:none;padding:20px;max-width:1100px;margin:auto}
+.page.active{display:block}
+.hero{background:#111;color:white;border-radius:18px;padding:35px 22px;margin-bottom:20px}
+.hero h1{font-size:32px;margin-bottom:10px}
+.hero p{color:#ccc;margin-bottom:20px}
+.search-box{background:white;padding:18px;border-radius:15px;margin-bottom:20px;box-shadow:0 2px 10px #ddd}
+input,select{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;margin:6px 0 12px;font-size:15px}
+.btn{border:0;border-radius:10px;padding:12px 17px;font-weight:bold;cursor:pointer}
+.red-btn{background:#e53935;color:white}
+.dark-btn{background:#111;color:white}
+.green-btn{background:#198754;color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 2px 10px #ddd}
+.car-img{height:170px;background:#ddd;display:flex;align-items:center;justify-content:center;font-size:55px}
+.card-body{padding:16px}
+.price{font-size:21px;font-weight:bold;margin:8px 0}
+.meta{color:#666;font-size:14px;line-height:1.7}
+.card-actions{display:flex;gap:8px;margin-top:12px}
+.section-title{margin:22px 0 12px}
+.detail-card{background:white;padding:20px;border-radius:16px}
+.big-price{font-size:30px;font-weight:bold;margin:10px 0}
+.score{font-size:38px;font-weight:bold;color:#198754;margin:10px 0}
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.info{background:#f5f6f8;padding:14px;border-radius:10px}
+.offer-box{background:#fff3f3;padding:18px;border-radius:14px;margin-top:18px}
+.bottom-nav{display:none}
 
 @media(max-width:700px){
-
-  .desktop-nav{
-    display:none;
-  }
-
-  .hero h1{
-    font-size:29px;
-  }
-
-  .hero-search{
-    flex-direction:column;
-  }
-
-  .filter-row{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .detail-top{
-    grid-template-columns:1fr;
-  }
-
-  .detail-photo{
-    min-height:230px;
-    font-size:80px;
-  }
-
-  .spec-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .action-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .section{
-    padding:25px 15px;
-  }
+nav{display:none}
+.page{padding:14px}
+.hero h1{font-size:26px}
+.row{grid-template-columns:1fr}
+.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#111;color:white;justify-content:space-around;padding:10px;z-index:20}
+.bottom-nav button{background:none;border:0;color:white;font-size:12px}
+.page{padding-bottom:80px}
 }
 </style>
 </head>
@@ -638,528 +56,713 @@ footer{
 <body>
 
 <header>
-
-  <div class="logo">DriveDeal</div>
-
-  <nav class="desktop-nav">
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('cars')">Buy Cars</button>
-    <button onclick="showPage('sell')">Sell Car</button>
-    <button onclick="showPage('messages')">Messages</button>
-  </nav>
-
-  <button class="login-btn" onclick="showPage('profile')">
-    Login
-  </button>
-
+<div class="logo">Drive<span>Deal</span></div>
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('cars')">Buy Cars</button>
+<button onclick="showPage('sell')">Sell Car</button>
+<button onclick="showPage('messages')">Messages</button>
+</nav>
 </header>
 
-
 <!-- HOME -->
+<section id="home" class="page active">
 
-<div id="home" class="page active">
-
-  <section class="hero">
-
-    <h1>Buy Smart. Sell Smart.</h1>
-
-    <p>
-      Find the right car at the right price.
-    </p>
-
-    <div class="hero-search">
-
-      <input
-        id="mainSearch"
-        type="text"
-        placeholder="Search brand or model"
-      >
-
-      <button class="red-btn" onclick="searchFromHome()">
-        Search Cars
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="section-title">
-      <h2>Featured Cars</h2>
-      <button class="red-btn" onclick="showPage('cars')">
-        View All
-      </button>
-    </div>
-
-    <div class="cards" id="featuredCars"></div>
-
-  </section>
-
-
-  <section class="section">
-
-    <h2 style="margin-bottom:20px;">
-      Why DriveDeal?
-    </h2>
-
-    <div class="features">
-
-      <div class="feature">
-        <div class="feature-icon">💰</div>
-        <h3>Smart Price</h3>
-        <p>
-          Get an estimated market range before buying or selling.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">❤️</div>
-        <h3>Car Health Score</h3>
-        <p>
-          Understand important vehicle condition indicators.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">📄</div>
-        <h3>Car Passport</h3>
-        <p>
-          See document and history verification status.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">🤝</div>
-        <h3>Safe Offers</h3>
-        <p>
-          Make structured offers without free-text buyer-seller chat.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="sell-box">
-
-      <h2>Sell Your Car</h2>
-
-      <p>
-        List your car and get a smart price suggestion.
-      </p>
-
-      <button class="sell-btn" onclick="showPage('sell')">
-        Sell My Car
-      </button>
-
-    </div>
-
-  </section>
-
+<div class="hero">
+<h1>Buy Smart. Sell Smart.</h1>
+<p>Find the right car, check its details, compare prices and make a smart deal.</p>
+<button class="btn red-btn" onclick="showPage('cars')">Browse Cars</button>
 </div>
 
-
-<!-- BUY CARS -->
-
-<div id="cars" class="page">
-
-  <section class="section">
-
-    <div class="section-title">
-      <h2>Buy Cars</h2>
-    </div>
-
-    <div class="search-panel">
-
-      <input
-        id="carsSearch"
-        type="text"
-        placeholder="Search Tata, Hyundai, XUV700..."
-        oninput="filterCars()"
-      >
-
-      <div class="filter-row">
-
-        <select id="fuelFilter" onchange="filterCars()">
-          <option value="">All Fuel</option>
-          <option value="Petrol">Petrol</option>
-          <option value="Diesel">Diesel</option>
-          <option value="Electric">Electric</option>
-        </select>
-
-        <select id="priceFilter" onchange="filterCars()">
-          <option value="">Any Price</option>
-          <option value="500000">Under ₹5L</option>
-          <option value="1000000">Under ₹10L</option>
-          <option value="1500000">Under ₹15L</option>
-        </select>
-
-        <select id="transmissionFilter" onchange="filterCars()">
-          <option value="">Any Transmission</option>
-          <option value="Manual">Manual</option>
-          <option value="Automatic">Automatic</option>
-        </select>
-
-        <select id="sortFilter" onchange="filterCars()">
-          <option value="">Sort</option>
-          <option value="low">Price Low</option>
-          <option value="high">Price High</option>
-          <option value="new">Newest</option>
-        </select>
-
-      </div>
-
-    </div>
-
-    <div class="cards" id="carList"></div>
-
-  </section>
-
+<div class="search-box">
+<h2>Find Your Car</h2>
+<input id="homeSearch" placeholder="Search Hyundai, Tata, Mahindra..." oninput="searchHome()">
+<button class="btn dark-btn" onclick="showPage('cars')">Search Cars</button>
 </div>
 
+<h2 class="section-title">Featured Cars</h2>
+<div id="homeCars" class="grid"></div>
 
-<!-- CAR DETAILS -->
+</section>
 
-<div id="details" class="page">
+<!-- CARS -->
+<section id="cars" class="page">
 
-  <section class="section">
+<h2>Buy Cars</h2>
 
-    <button class="dark-btn" style="max-width:150px;margin-bottom:20px;" onclick="showPage('cars')">
-      ← Back
-    </button>
+<div class="search-box">
+<input id="carSearch" placeholder="Search by brand or model..." oninput="renderCars()">
 
-    <div class="detail-top">
+<div class="row">
+<select id="fuelFilter" onchange="renderCars()">
+<option value="">All Fuel</option>
+<option>Petrol</option>
+<option>Diesel</option>
+<option>Electric</option>
+</select>
 
-      <div class="detail-photo" id="detailEmoji">
-        🚗
-      </div>
-
-      <div class="detail-info">
-
-        <span class="badge">
-          ✓ Verified Listing
-        </span>
-
-        <h1 id="detailName">
-          Car
-        </h1>
-
-        <div class="big-price" id="detailPrice">
-          ₹0
-        </div>
-
-        <div id="detailLocation">
-          Pune
-        </div>
-
-        <div class="spec-grid">
-
-          <div class="spec">
-            <small>Year</small>
-            <b id="detailYear"></b>
-          </div>
-
-          <div class="spec">
-            <small>Kilometres</small>
-            <b id="detailKm"></b>
-          </div>
-
-          <div class="spec">
-            <small>Fuel</small>
-            <b id="detailFuel"></b>
-          </div>
-
-          <div class="spec">
-            <small>Transmission</small>
-            <b id="detailTransmission"></b>
-          </div>
-
-        </div>
-
-        <div class="action-grid">
-
-          <button class="primary" onclick="openOffer()">
-            🤝 Make Offer
-          </button>
-
-          <button class="secondary" onclick="requestTestDrive()">
-            🗓️ Test Drive
-          </button>
-
-          <button class="white-btn" onclick="saveCurrentCar()">
-            ❤️ Save Car
-          </button>
-
-          <button class="white-btn" onclick="showPage('messages')">
-            💬 Messages
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="score-box">
-
-      <h2>❤️ Car Health Score</h2>
-
-      <div class="score-main">
-
-        <div class="score-number" id="healthOverall">
-          87%
-        </div>
-
-        <p>Overall Health Score</p>
-
-      </div>
-
-      <div id="healthRows"></div>
-
-    </div>
-
-
-    <div class="smart-price">
-
-      <h3>💰 Smart Price</h3>
-
-      <p>
-        Estimated market range based on vehicle information,
-        location and comparable listings.
-      </p>
-
-      <div class="range" id="smartRange">
-        ₹0 - ₹0
-      </div>
-
-      <p>
-        Recommended listing price:
-        <b id="recommendedPrice">₹0</b>
-      </p>
-
-    </div>
-
-
-    <div class="passport">
-
-      <h2>📄 Car Passport</h2>
-
-      <p style="color:#6b7280;margin:8px 0 15px;">
-        Document status shown below is for platform screening.
-      </p>
-
-      <div class="doc-row">
-        <span>RC</span>
-        <span class="doc-ok">✓ Verified</span>
-      </div>
-
-      <div class="doc-row">
-        <span>Insurance</span>
-        <span class="doc-ok">✓ Valid</span>
-      </div>
-
-      <div class="doc-row">
-        <span>PUC</span>
-        <span class="doc-ok">✓ Available</span>
-      </div>
-
-      <div class="doc-row">
-        <span>Service History</span>
-        <span class="doc-ok">✓ Available</span>
-      </div>
-
-      <div class="doc-row">
-        <span>Loan / NOC</span>
-        <span class="doc-ok">✓ No pending flag</span>
-      </div>
-
-      <div class="disclaimer">
-        AI-based document and vehicle checks are automated screening
-        tools and do not guarantee authenticity, accuracy, legality,
-        ownership, condition, safety or validity. Buyers and sellers
-        must independently verify information before completing a
-        transaction.
-      </div>
-
-    </div>
-
-  </section>
-
+<select id="transFilter" onchange="renderCars()">
+<option value="">All Transmission</option>
+<option>Manual</option>
+<option>Automatic</option>
+</select>
+</div>
 </div>
 
+<div id="carsList" class="grid"></div>
 
-<!-- OFFER -->
+</section>
 
-<div id="offer" class="page">
+<!-- DETAILS -->
+<section id="details" class="page">
 
-  <section class="section">
+<button class="btn dark-btn" onclick="showPage('cars')">← Back</button>
 
-    <div class="offer-box">
+<div id="detailsContent" style="margin-top:15px"></div>
 
-      <h2>🤝 Make an Offer</h2>
-
-      <p style="margin-top:8px;color:#6b7280;">
-        Select an offer amount. No free-text buyer-seller chat.
-      </p>
-
-      <div style="margin-top:20px;">
-        <b id="offerCarName">Car</b>
-        <div class="price" id="offerCarPrice">₹0</div>
-      </div>
-
-      <div class="amount-grid">
-
-        <button class="amount-btn" onclick="selectOffer(0.90)">
-          90%
-        </button>
-
-        <button class="amount-btn" onclick="selectOffer(0.95)">
-          95%
-        </button>
-
-        <button class="amount-btn" onclick="selectOffer(0.98)">
-          98%
-        </button>
-
-      </div>
-
-      <div class="form-group">
-        <label>Selected Offer</label>
-        <input id="offerAmount" readonly placeholder="Select an amount">
-      </div>
-
-      <button class="red-btn" style="width:100%;" onclick="submitOffer()">
-        Send Offer
-      </button>
-
-      <button class="dark-btn" style="width:100%;margin-top:10px;" onclick="showPage('details')">
-        Cancel
-      </button>
-
-      <div class="offer-history">
-
-        <h3>Offer Flow</h3>
-
-        <div class="offer-item">
-          🟢 Buyer can Make Offer
-        </div>
-
-        <div class="offer-item">
-          🟡 Seller can Counter Offer
-        </div>
-
-        <div class="offer-item">
-          🔵 Buyer can Accept / Reject
-        </div>
-
-        <div class="offer-item">
-          🟢 Accepted → Deal Confirmed
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-
+</section>
 
 <!-- SELL -->
+<section id="sell" class="page">
 
-<div id="sell" class="page">
+<h2>Sell Your Car</h2>
 
-  <section class="section">
+<div class="detail-card" style="margin-top:15px">
 
-    <div class="form-box">
+<label>Brand</label>
+<input id="sellBrand" placeholder="Example: Hyundai">
 
-      <h2>🚘 Sell Your Car</h2>
+<label>Model</label>
+<input id="sellModel" placeholder="Example: Creta">
 
-      <p style="color:#6b7280;margin:8px 0 20px;">
-        Add your vehicle details to create a listing.
-      </p>
+<label>Year</label>
+<input id="sellYear" type="number" placeholder="2022">
 
-      <div class="form-group">
-        <label>Brand</label>
-        <input id="sellBrand" placeholder="e.g. Hyundai">
-      </div>
+<label>Kilometres</label>
+<input id="sellKm" type="number" placeholder="45000">
 
-      <div class="form-group">
-        <label>Model</label>
-        <input id="sellModel" placeholder="e.g. Creta">
-      </div>
+<label>Fuel</label>
+<select id="sellFuel">
+<option>Petrol</option>
+<option>Diesel</option>
+<option>Electric</option>
+</select>
 
-      <div class="form-group">
-        <label>Year</label>
-        <select id="sellYear">
-          <option value="">Select Year</option>
-          <option>2026</option>
-          <option>2025</option>
-          <option>2024</option>
-          <option>2023</option>
-          <option>2022</option>
-          <option>2021</option>
-          <option>2020</option>
-          <option>2019</option>
-          <option>2018</option>
-        </select>
-      </div>
+<label>Transmission</label>
+<select id="sellTrans">
+<option>Manual</option>
+<option>Automatic</option>
+</select>
 
-      <div class="form-group">
-        <label>Kilometres</label>
-        <input id="sellKm" type="number" placeholder="e.g. 45000">
-      </div>
+<label>Expected Price</label>
+<input id="sellPrice" type="number" placeholder="1375000">
 
-      <div class="form-group">
-        <label>Fuel</label>
-        <select id="sellFuel">
-          <option value="">Select Fuel</option>
-          <option>Petrol</option>
-          <option>Diesel</option>
-          <option>Electric</option>
-        </select>
-      </div>
+<label>City</label>
+<input id="sellCity" placeholder="Pune">
 
-      <div class="form-group">
-        <label>Transmission</label>
-        <select id="sellTransmission">
-          <option value="">Select Transmission</option>
-          <option>Manual</option>
-          <option>Automatic</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Expected Price</label>
-        <input id="sellPrice" type="number" placeholder="₹">
-      </div>
-
-      <div class="form-group">
-        <label>Location</label>
-        <input id="sellLocation" placeholder="e.g. Pune">
-      </div>
-
-      <button class="red-btn" style="width:100%;" onclick="submitListing()">
-        Submit Car Listing
-      </button>
-
-      <div class="disclaimer">
-        By submitting, you confirm that the information provided
-        is accurate to the best of your knowledge. Verification
-        may be required before a listing is published.
-      </div>
-
-    </div>
-
-  </section>
+<button class="btn red-btn" onclick="submitSell()">Submit Car</button>
 
 </div>
 
+</section>
 
-<!-- MESSAGE
+<!-- MESSAGES -->
+<section id="messages" class="page">
+
+<h2>Messages & Offers</h2>
+
+<div class="detail-card" style="margin-top:15px">
+<h3>Deal Communication</h3>
+<p style="margin:12px 0;color:#666">
+Use structured offers instead of sharing personal contact details.
+</p>
+
+<button class="btn dark-btn" onclick="makeOffer()">Make Offer</button>
+
+<div id="offerResult" style="margin-top:15px"></div>
+</div>
+
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="page">
+
+<h2>My Profile</h2>
+
+<div class="detail-card" style="margin-top:15px">
+<h3>DriveDeal User</h3>
+<p style="margin-top:8px">Buyer / Seller</p>
+<hr style="margin:15px 0">
+<p>Saved Cars</p>
+<p>My Listings</p>
+<p>My Offers</p>
+<p>My Deals</p>
+</div>
+
+</section>
+
+<div class="bottom-nav">
+<button onclick="showPage('home')">🏠<br>Home</button>
+<button onclick="showPage('cars')">🚗<br>Search</button>
+<button onclick="showPage('sell')">➕<br>Sell</button>
+<button onclick="showPage('messages')">💬<br>Messages</button>
+<button onclick="showPage('profile')">👤<br>Profile</button>
+</div>
+
+<script>
+
+const cars = [
+
+{
+id:1,
+brand:"Hyundai",
+model:"Creta",
+year:2022,
+km:45000,
+fuel:"Diesel",
+trans:"Automatic",
+price:1375000,
+city:"Pune",
+health:87,
+smartPrice:"₹13.2L - ₹14.1L"
+},
+
+{
+id:2,
+brand:"Tata",
+model:"Nexon",
+year:2023,
+km:28000,
+fuel:"Petrol",
+trans:"Manual",
+price:920000,
+city:"Pune",
+health:91,
+smartPrice:"₹8.8L - ₹9.5L"
+},
+
+{
+id:3,
+brand:"Mahindra",
+model:"XUV700",
+year:2023,
+km:32000,
+fuel:"Diesel",
+trans:"Automatic",
+price:1650000,
+city:"Pune",
+health:89,
+smartPrice:"₹15.8L - ₹17.2L"
+},
+
+{
+id:4,
+brand:"Maruti Suzuki",
+model:"Brezza",
+year:2022,
+km:35000,
+fuel:"Petrol",
+trans:"Automatic",
+price:980000,
+city:"Pune",
+health:90,
+smartPrice:"₹9.4L - ₹10.2L"
+},
+
+{
+id:5,
+brand:"Hyundai",
+model:"Verna",
+year:2023,
+km:22000,
+fuel:"Petrol",
+trans:"Automatic",
+price:1450000,
+city:"Pune",
+health:92,
+smartPrice:"₹13.9L - ₹15.0L"
+},
+
+{
+id:6,
+brand:"Tata",
+model:"Punch EV",
+year:2024,
+km:12000,
+fuel:"Electric",
+trans:"Automatic",
+price:1250000,
+city:"Pune",
+health:94,
+smartPrice:"₹12.0L - ₹13.0L"
+}
+
+];
+
+let currentCar = null;
+
+function showPage(pageId){
+
+document.querySelectorAll(".page").forEach(function(page){
+page.classList.remove("active");
+});
+
+const page = document.getElementById(pageId);
+
+if(page){
+page.classList.add("active");
+window.scrollTo(0,0);
+}
+
+if(pageId === "cars"){
+renderCars();
+}
+
+}
+
+function money(value){
+return "₹" + Number(value).toLocaleString("en-IN");
+}
+
+function renderCars(){
+
+const list = document.getElementById("carsList");
+
+if(!list) return;
+
+const search = (document.getElementById("carSearch").value || "").toLowerCase();
+const fuel = document.getElementById("fuelFilter").value;
+const trans = document.getElementById("transFilter").value;
+
+const filtered = cars.filter(function(car){
+
+const text = (car.brand + " " + car.model).toLowerCase();
+
+return text.includes(search)
+&& (!fuel || car.fuel === fuel)
+&& (!trans || car.trans === trans);
+
+});
+
+list.innerHTML = "";
+
+if(filtered.length === 0){
+
+list.innerHTML =
+"<div class='detail-card'><h3>No cars found</h3><p>Try another brand or model.</p></div>";
+
+return;
+
+}
+
+filtered.forEach(function(car){
+
+list.innerHTML += `
+
+<div class="card">
+
+<div class="car-img">🚗</div>
+
+<div class="card-body">
+
+<h3>${car.brand} ${car.model}</h3>
+
+<div class="price">${money(car.price)}</div>
+
+<div class="meta">
+${car.year} • ${car.km.toLocaleString("en-IN")} km<br>
+${car.fuel} • ${car.trans}<br>
+📍 ${car.city}
+</div>
+
+<div class="card-actions">
+
+<button class="btn dark-btn" onclick="openDetails(${car.id})">
+View Details
+</button>
+
+<button class="btn red-btn" onclick="makeOffer(${car.id})">
+Offer
+</button>
+
+</div>
+
+</div>
+</div>
+
+`;
+
+});
+
+}
+
+function renderHome(){
+
+const box = document.getElementById("homeCars");
+
+box.innerHTML = "";
+
+cars.slice(0,3).forEach(function(car){
+
+box.innerHTML += `
+
+<div class="card">
+
+<div class="car-img">🚘</div>
+
+<div class="card-body">
+
+<h3>${car.brand} ${car.model}</h3>
+
+<div class="price">${money(car.price)}</div>
+
+<div class="meta">
+${car.year} • ${car.km.toLocaleString("en-IN")} km<br>
+${car.fuel} • ${car.trans}<br>
+📍 ${car.city}
+</div>
+
+<button class="btn dark-btn" style="margin-top:12px"
+onclick="openDetails(${car.id})">
+View Details
+</button>
+
+</div>
+</div>
+
+`;
+
+});
+
+}
+
+function openDetails(id){
+
+currentCar = cars.find(function(car){
+return car.id === id;
+});
+
+if(!currentCar) return;
+
+const c = currentCar;
+
+document.getElementById("detailsContent").innerHTML = `
+
+<div class="detail-card">
+
+<div class="car-img" style="height:230px;border-radius:12px">
+🚗
+</div>
+
+<h1 style="margin-top:18px">
+${c.brand} ${c.model}
+</h1>
+
+<div class="big-price">${money(c.price)}</div>
+
+<div class="row">
+
+<div class="info"><b>Year</b><br>${c.year}</div>
+<div class="info"><b>Kilometres</b><br>${c.km.toLocaleString("en-IN")} km</div>
+<div class="info"><b>Fuel</b><br>${c.fuel}</div>
+<div class="info"><b>Transmission</b><br>${c.trans}</div>
+<div class="info"><b>Location</b><br>${c.city}</div>
+<div class="info"><b>Seller</b><br>Verified Seller</div>
+
+</div>
+
+<div class="offer-box">
+
+<h2>Car Health Score</h2>
+
+<div class="score">${c.health}%</div>
+
+<p>
+Engine • Gearbox • Brakes • Tyres • Suspension • Interior
+</p>
+
+<p style="margin-top:8px;color:#198754">
+✓ Inspection information available
+</p>
+
+</div>
+
+<div class="offer-box">
+
+<h2>Smart Price</h2>
+
+<h3 style="margin-top:10px">${c.smartPrice}</h3>
+
+<p style="margin-top:8px">
+Estimated market range based on vehicle details and comparable listings.
+</p>
+
+</div>
+
+<div class="offer-box">
+
+<h2>Car Passport</h2>
+
+<p style="margin-top:10px">🟢 RC Status: Verified</p>
+<p>🟢 Insurance: Valid</p>
+<p>🟢 Service History: Available</p>
+<p>🟡 Loan/NOC: Check before deal</p>
+
+</div>
+
+<div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+
+<button class="btn red-btn" onclick="makeOffer(${c.id})">
+Make Offer
+</button>
+
+<button class="btn dark-btn" onclick="testDrive()">
+Ask Test Drive
+</button>
+
+<button class="btn green-btn" onclick="interest()">
+I'm Interested
+</button>
+
+</div>
+
+</div>
+`;
+
+showPage("details");
+
+}
+
+function makeOffer(id){
+
+if(id){
+currentCar = cars.find(function(car){
+return car.id === id;
+});
+}
+
+const box = document.getElementById("offerResult");
+
+if(box){
+
+box.innerHTML = `
+
+<h3>Make Offer</h3>
+
+<p style="margin:8px 0">
+${currentCar ? currentCar.brand + " " + currentCar.model : "Selected Car"}
+</p>
+
+<select id="offerAmount">
+
+<option value="0">Select Offer Amount</option>
+
+<option value="650000">₹6,50,000</option>
+<option value="670000">₹6,70,000</option>
+<option value="700000">₹7,00,000</option>
+<option value="750000">₹7,50,000</option>
+<option value="800000">₹8,00,000</option>
+
+</select>
+
+<button class="btn red-btn" onclick="sendOffer()">
+Send Offer
+</button>
+
+`;
+
+showPage("messages");
+
+}else{
+
+alert("Offer flow opened.");
+
+}
+
+}
+
+function sendOffer(){
+
+const amount = document.getElementById("offerAmount").value;
+
+if(amount === "0"){
+alert("Please select an offer amount.");
+return;
+}
+
+document.getElementById("offerResult").innerHTML = `
+
+<div class="info">
+
+<h3>Offer Sent ✓</h3>
+
+<p style="margin-top:8px">
+Offer Amount: <b>${money(amount)}</b>
+</p>
+
+<p style="margin-top:8px">
+Seller can Accept, Reject or Counter your offer.
+</p>
+
+<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+
+<button class="btn green-btn" onclick="dealConfirmed()">
+Accept
+</button>
+
+<button class="btn dark-btn" onclick="counterOffer()">
+Counter
+</button>
+
+<button class="btn red-btn" onclick="rejectOffer()">
+Reject
+</button>
+
+</div>
+
+</div>
+`;
+
+}
+
+function counterOffer(){
+
+document.getElementById("offerResult").innerHTML += `
+
+<div class="offer-box">
+
+<h3>Seller Counter Offer</h3>
+
+<p style="margin:8px 0">
+₹6,70,000
+</p>
+
+<button class="btn green-btn" onclick="dealConfirmed()">
+Accept Counter Offer
+</button>
+
+</div>
+`;
+
+}
+
+function dealConfirmed(){
+
+document.getElementById("offerResult").innerHTML = `
+
+<div class="offer-box">
+
+<h2>🎉 Deal Confirmed</h2>
+
+<h1 style="margin:10px 0">
+₹6,70,000
+</h1>
+
+<p>
+Platform Commission: 1%
+</p>
+
+<p>
+Commission Amount: ₹6,700
+</p>
+
+<button class="btn green-btn" style="margin-top:12px"
+onclick="paymentDone()">
+Mark Payment Done
+</button>
+
+</div>
+`;
+
+}
+
+function rejectOffer(){
+
+document.getElementById("offerResult").innerHTML = `
+
+<div class="info">
+<h3>Offer Rejected</h3>
+<p style="margin-top:8px">
+You can make another offer.
+</p>
+</div>
+
+`;
+
+}
+
+function paymentDone(){
+
+document.getElementById("offerResult").innerHTML = `
+
+<div class="info">
+
+<h2>✓ Payment Recorded</h2>
+
+<p style="margin-top:8px">
+Commission: ₹6,700
+</p>
+
+<p style="margin-top:8px">
+Deal Status: <b>Completed</b>
+</p>
+
+</div>
+
+`;
+
+}
+
+function testDrive(){
+
+alert("Test Drive request submitted.");
+
+}
+
+function interest(){
+
+alert("Interest sent to seller.");
+
+}
+
+function submitSell(){
+
+const brand = document.getElementById("sellBrand").value;
+const model = document.getElementById("sellModel").value;
+
+if(!brand || !model){
+
+alert("Please enter Brand and Model.");
+
+return;
+
+}
+
+alert("Your car listing has been submitted for review.");
+
+}
+
+function searchHome(){
+
+const value = document.getElementById("homeSearch").value;
+
+showPage("cars");
+
+document.getElementById("carSearch").value = value;
+
+renderCars();
+
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+
+renderHome();
+renderCars();
+
+});
+
+</script>
+
+</body>
+</html>
+```
