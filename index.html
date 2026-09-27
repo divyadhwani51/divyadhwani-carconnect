@@ -401,6 +401,7 @@ async function loadCarsFromSupabase() {
 
     console.log("Supabase cars:", cars);
 console.log("FIRST CAR:", cars[0]);
+    alert("Supabase connected: " + cars[0].brand + " " + cars[0].model);
   } catch (error) {
     console.log("Connection error:", error);
   }
