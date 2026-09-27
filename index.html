@@ -398,31 +398,18 @@
 </section>
 
 <script>
-function searchCars() {
-  const input = document.getElementById("carSearch").value.toLowerCase().trim();
-  const cars = document.querySelectorAll("#carList .card");
-
-  cars.forEach(function(car) {
-    const name = (car.getAttribute("data-name") || "").toLowerCase();
-
-    if (input === "" || name.includes(input)) {
-      car.style.display = "";
+if (carName.includes(searchText)) {
+      car.style.display = "block";
     } else {
       car.style.display = "none";
     }
+
   });
 }
 
-
 function viewCar(carName) {
-
-  alert(
-    carName +
-    " details will open here."
-  );
-
+  alert(carName + " details will open here.");
 }
-
 </script>
 </body>
 </html>
