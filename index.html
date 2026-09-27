@@ -398,32 +398,21 @@
 </section>
 
 <script>
-
 function searchCars() {
-
-  let input = document
-    .getElementById("carSearch")
-    .value
-    .toLowerCase();
-
-  let cars = document
-    .querySelectorAll("#carList .card");
+  const input = document.getElementById("carSearch").value.toLowerCase().trim();
+  const cars = document.querySelectorAll("#carList .card");
 
   cars.forEach(function(car) {
+    const name = (car.getAttribute("data-name") || "").toLowerCase();
 
-    let name = car
-      .getAttribute("data-name")
-      .toLowerCase();
-
-    if (name.includes(input)) {
-      car.style.display = "block";
+    if (input === "" || name.includes(input)) {
+      car.style.display = "";
     } else {
       car.style.display = "none";
     }
-
   });
-
 }
+
 
 function viewCar(carName) {
 
