@@ -400,7 +400,7 @@ async function loadCarsFromSupabase() {
     const cars = await response.json();
 
     console.log("Supabase cars:", cars);
-
+console.log("FIRST CAR:", cars[0]);
   } catch (error) {
     console.log("Connection error:", error);
   }
