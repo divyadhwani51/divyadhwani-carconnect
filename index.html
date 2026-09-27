@@ -377,7 +377,36 @@ The production version can check document type, dates, listing/RC consistency an
 
 
 <script>
+const SUPABASE_URL = "https://wbybuepngwywusctrjpr.supabase.co";
+const SUPABASE_KEY = "तुझी_PUBLISHABLE_KEY_इथे";
 
+async function loadCarsFromSupabase() {
+  try {
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/cars?select=*",
+      {
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY
+        }
+      }
+    );
+
+    if (!response.ok) {
+      console.log("Supabase error:", await response.text());
+      return;
+    }
+
+    const cars = await response.json();
+
+    console.log("Supabase cars:", cars);
+
+  } catch (error) {
+    console.log("Connection error:", error);
+  }
+}
+
+loadCarsFromSupabase();
 const data={
 1:{
 name:"Hyundai Creta",
