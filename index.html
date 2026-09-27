@@ -1,180 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Divyadhwani CarConnect Kolhapur - Buy and sell used cars in Kolhapur. Connect with local car sellers and buyers.">
-<meta name="keywords" content="used cars Kolhapur, second hand cars Kolhapur, sell car Kolhapur, buy used car Kolhapur, CarConnect Kolhapur">
-<title>Divyadhwani CarConnect Kolhapur | Buy & Sell Used Cars</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;color:#172033;background:#f6f8fb;line-height:1.5}
-a{text-decoration:none;color:inherit}
-.container{max-width:1100px;margin:auto;padding:0 18px}
-header{background:#0b1220;color:white;position:sticky;top:0;z-index:20}
-.nav{height:68px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:800;font-size:19px}.logo span{color:#f5b700}
-nav a{margin-left:20px;font-size:14px;color:#e9edf5}
-.hero{background:linear-gradient(135deg,#0b1220,#1d3557);color:#fff;padding:65px 0 55px}
-.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;margin-bottom:15px}
-.hero p{max-width:650px;color:#dce5f2;font-size:17px}
-.badge{display:inline-block;background:#f5b700;color:#111;padding:7px 12px;border-radius:20px;font-weight:700;font-size:12px;margin-bottom:18px}
-.searchbox{background:white;padding:16px;border-radius:14px;margin-top:28px;display:grid;grid-template-columns:1fr 170px 150px;gap:10px;box-shadow:0 12px 35px #0003}
-input,select,textarea{width:100%;padding:13px;border:1px solid #d6dce5;border-radius:9px;font:inherit}
-button,.btn{border:0;border-radius:9px;padding:13px 18px;background:#f5b700;color:#111;font-weight:800;cursor:pointer}
-.btn.dark{background:#0b1220;color:white}
-section{padding:45px 0}
-.section-title{font-size:28px;margin-bottom:8px}.muted{color:#667085}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-.card{background:white;border:1px solid #e5e9f0;border-radius:14px;overflow:hidden;box-shadow:0 5px 18px #1322380b}
-.car-img{height:155px;background:linear-gradient(135deg,#dbe4ef,#aebed2);display:flex;align-items:center;justify-content:center;font-size:52px}
-.card-body{padding:16px}.card h3{font-size:19px}.price{font-size:21px;font-weight:800;margin:7px 0}.specs{font-size:13px;color:#667085;margin-bottom:14px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.panel{background:white;border:1px solid #e5e9f0;border-radius:14px;padding:24px}
-form{display:grid;gap:11px;margin-top:15px}
-footer{background:#0b1220;color:#cbd5e1;padding:30px 0;margin-top:10px}
-.small{font-size:13px;color:#94a3b8}
-.notice{margin-top:12px;padding:12px;border-radius:9px;background:#ecfdf3;color:#087443;display:none}.photo-upload{border:2px dashed #cbd5e1;border-radius:10px;padding:15px;background:#f8fafc}.photo-upload label{display:block;font-weight:700;margin-bottom:7px}.photo-help{font-size:12px;color:#667085;margin-top:5px}.preview{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.preview img{width:100%;height:85px;object-fit:cover;border-radius:8px;border:1px solid #d6dce5}@media(max-width:760px){.preview{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){
- nav{display:none}.searchbox{grid-template-columns:1fr}.cards,.grid2{grid-template-columns:1fr}
- .hero{padding:45px 0}.section-title{font-size:24px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DriveDeal - Buy & Sell Cars</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #111827;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff3b30;
+    }
+
+    .login {
+      background: white;
+      color: #111827;
+      border: none;
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: #111827;
+      color: white;
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #d1d5db;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .search-btn {
+      width: 100%;
+      padding: 13px;
+      background: #ff3b30;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 30px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section h2 {
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .car-image {
+      height: 160px;
+      background: #e5e7eb;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #ff3b30;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .details {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .view-btn {
+      width: 100%;
+      padding: 11px;
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .feature {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .sell-box {
+      background: #111827;
+      color: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .sell-btn {
+      margin-top: 18px;
+      padding: 13px 25px;
+      background: #ff3b30;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111827;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    .bottom-nav {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #ddd;
+        justify-content: space-around;
+        padding: 12px 5px;
+        z-index: 100;
+      }
+
+      .bottom-nav span {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      footer {
+        padding-bottom: 75px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
 <header>
-<div class="container nav">
-<div class="logo">Divyadhwani <span>CarConnect</span> Kolhapur</div>
-<nav><a href="#cars">Buy Cars</a><a href="#sell">Sell Your Car</a><a href="#contact">Contact</a></nav>
-</div>
+  <div class="logo">DriveDeal</div>
+  <button class="login">Login</button>
 </header>
 
-<main>
 <section class="hero">
-<div class="container">
-<div class="badge">🚗 LOCAL USED-CAR CONNECT</div>
-<h1>Buy. Sell. Connect.</h1>
-<p>Kolhapur मधील used cars शोधा किंवा तुमची car विकण्यासाठी free listing करा. Buyer आणि seller यांना connect करण्यासाठी Divyadhwani CarConnect.</p>
-<div class="searchbox">
-<input id="search" placeholder="Search model, e.g. Swift, i20, Nexon">
-<select id="budget"><option value="">Any Budget</option><option value="500000">Under ₹5 Lakh</option><option value="700000">Under ₹7 Lakh</option><option value="1000000">Under ₹10 Lakh</option></select>
-<button onclick="filterCars()">Search Cars</button>
-</div>
-</div>
+  <h1>Buy Smart. Sell Smart.</h1>
+  <p>Find the right car at the right price.</p>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search brand, model or location">
+    <button class="search-btn">Search Cars</button>
+  </div>
 </section>
 
-<section id="cars">
-<div class="container">
-<h2 class="section-title">Available Cars</h2>
-<p class="muted">Demo listings — real seller details add केल्यानंतर येथे दाखवता येतील.</p>
-<div class="cards" id="carList">
-<div class="card" data-name="swift" data-price="620000">
-<div class="car-img">🚘</div><div class="card-body">
-<h3>Maruti Swift VXi</h3><div class="price">₹6.20 Lakh</div>
-<div class="specs">2021 • 45,000 km • Petrol • Kolhapur</div>
-<button onclick="interested('Maruti Swift VXi')">I'm Interested</button>
-</div></div>
-<div class="card" data-name="i20" data-price="590000">
-<div class="car-img">🚙</div><div class="card-body">
-<h3>Hyundai i20 Sportz</h3><div class="price">₹5.90 Lakh</div>
-<div class="specs">2020 • 52,000 km • Petrol • Kolhapur</div>
-<button onclick="interested('Hyundai i20 Sportz')">I'm Interested</button>
-</div></div>
-<div class="card" data-name="nexon" data-price="850000">
-<div class="car-img">🚗</div><div class="card-body">
-<h3>Tata Nexon XZ+</h3><div class="price">₹8.50 Lakh</div>
-<div class="specs">2022 • 31,000 km • Petrol • Sangli</div>
-<button onclick="interested('Tata Nexon XZ+')">I'm Interested</button>
-</div></div>
-</div>
-</div>
+<section class="section">
+  <h2>Featured Cars</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="car-image">🚗</div>
+      <h3>Hyundai Creta</h3>
+      <div class="price">₹13,75,000</div>
+      <div class="details">
+        2022 • 45,000 km • Diesel • Automatic
+      </div>
+      <button class="view-btn">View Car</button>
+    </div>
+
+    <div class="card">
+      <div class="car-image">🚙</div>
+      <h3>Tata Nexon</h3>
+      <div class="price">₹9,20,000</div>
+      <div class="details">
+        2023 • 28,000 km • Petrol • Manual
+      </div>
+      <button class="view-btn">View Car</button>
+    </div>
+
+    <div class="card">
+      <div class="car-image">🚘</div>
+      <h3>Mahindra XUV700</h3>
+      <div class="price">₹16,50,000</div>
+      <div class="details">
+        2023 • 32,000 km • Diesel • Automatic
+      </div>
+      <button class="view-btn">View Car</button>
+    </div>
+
+  </div>
 </section>
 
-<section id="sell">
-<div class="container grid2">
-<div class="panel">
-<h2>Sell Your Car</h2>
-<p class="muted">तुमच्या car ची basic माहिती submit करा. Listing पुढील verification नंतर publish करता येईल.</p>
-<form onsubmit="submitForm(event,'sellerMsg')">
-<input required placeholder="Your Name">
-<input required type="tel" placeholder="Mobile Number">
-<input required placeholder="Car Model">
-<input required type="number" placeholder="Year">
-<input required placeholder="Expected Price">
-<input required placeholder="Location">
+<section class="section">
 
-<div class="photo-upload">
-<label for="carPhotos">📸 Car Photos</label>
-<input id="carPhotos" type="file" accept="image/*" multiple onchange="previewPhotos(event)">
-<div class="photo-help">Up to 10 photos: Front, Back, Side, Interior, Odometer, Tyres etc.</div>
-<div id="photoPreview" class="preview"></div>
-</div>
+  <h2>Why DriveDeal?</h2>
 
-<div class="photo-upload">
-<label for="docPhotos">🧾 RC / Insurance Photos (Optional)</label>
-<input id="docPhotos" type="file" accept="image/*,.pdf" multiple>
-<div class="photo-help">Documents should only be shared when appropriate. Do not upload sensitive information unnecessarily.</div>
-</div>
+  <div class="features">
 
-<textarea rows="3" placeholder="Extra details (KM, fuel, condition)"></textarea>
-<button type="submit">Submit Car Listing</button>
-<div id="sellerMsg" class="notice">Enquiry received! पुढील contact साठी तुमची माहिती save झाली आहे.</div>
-</form>
-</div>
-<div class="panel" id="contact">
-<h2>Buyer Enquiry</h2>
-<p class="muted">तुम्हाला कोणती car हवी आहे ते सांगा.</p>
-<form onsubmit="submitForm(event,'buyerMsg')">
-<input required placeholder="Your Name">
-<input required type="tel" placeholder="Mobile Number">
-<input placeholder="Preferred Car / Model">
-<input placeholder="Budget">
-<input placeholder="Location">
-<textarea rows="3" placeholder="Your requirement"></textarea>
-<button type="submit">Send Enquiry</button>
-<div id="buyerMsg" class="notice">Enquiry received! आम्ही तुमच्याशी contact करण्यासाठी वापरू.</div>
-</form>
-</div>
-</div>
+    <div class="feature">
+      <h3>💰 Smart Price</h3>
+      <p>Get an estimated market price before buying or selling.</p>
+    </div>
+
+    <div class="feature">
+      <h3>❤️ Car Health Score</h3>
+      <p>Understand the condition of important vehicle components.</p>
+    </div>
+
+    <div class="feature">
+      <h3>📄 AI Document Check</h3>
+      <p>AI screening helps identify possible document mismatches.</p>
+    </div>
+
+    <div class="feature">
+      <h3>🤝 Safe Offers</h3>
+      <p>Make and negotiate offers inside the platform.</p>
+    </div>
+
+  </div>
+
 </section>
-</main>
+
+<section class="section">
+
+  <div class="sell-box">
+
+    <h2>Sell Your Car</h2>
+
+    <p>
+      List your car, get a smart price suggestion
+      and connect with interested buyers.
+    </p>
+
+    <button class="sell-btn">Sell My Car</button>
+
+  </div>
+
+</section>
 
 <footer>
-<div class="container">
-<strong>Divyadhwani CarConnect Kolhapur</strong>
-<p class="small">Buy & sell used cars • Local buyer-seller connection</p>
-<p class="small" style="margin-top:10px">© 2026 Divyadhwani CarConnect Kolhapur. Demo website.</p>
-</div>
+
+  <p>© 2026 DriveDeal</p>
+  <p>Buy Smart. Sell Smart.</p>
+
 </footer>
 
-<script>
-function filterCars(){
- const q=document.getElementById('search').value.toLowerCase().trim();
- const b=document.getElementById('budget').value;
- document.querySelectorAll('#carList .card').forEach(c=>{
-   const okName=!q||c.dataset.name.includes(q);
-   const okBudget=!b||Number(c.dataset.price)<=Number(b);
-   c.style.display=okName&&okBudget?'block':'none';
- });
-}
-function interested(car){
- const msg=encodeURIComponent('Hello Divyadhwani CarConnect, मला '+car+' बद्दल enquiry करायची आहे.');
- alert('WhatsApp enquiry तयार करण्यासाठी तुमचा WhatsApp नंबर website मध्ये add करावा लागेल.\\n\\nCar: '+car);
-}
-function previewPhotos(e){
- const files=[...e.target.files].slice(0,10);
- const box=document.getElementById('photoPreview');
- box.innerHTML='';
- files.forEach(file=>{
-   if(!file.type.startsWith('image/')) return;
-   const img=document.createElement('img');
-   img.src=URL.createObjectURL(file);
-   box.appendChild(img);
- });
-}
-function submitForm(e,id){
- e.preventDefault();document.getElementById(id).style.display='block';e.target.reset();
-}
-</script>
+<div class="bottom-nav">
+
+  <span>🏠<br>Home</span>
+  <span>🔎<br>Search</span>
+  <span>➕<br>Sell</span>
+  <span>💬<br>Messages</span>
+  <span>👤<br>Profile</span>
+
+</div>
+
 </body>
 </html>
