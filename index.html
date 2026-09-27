@@ -4,870 +4,879 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>DriveDeal - Buy & Sell Cars</title>
 
 <style>
-
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#f5f6f8;
-color:#171717;
-padding-bottom:70px;
+  background:#f5f7fa;
+  color:#111827;
 }
 
 header{
-background:#111;
-color:white;
-padding:15px 18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:100;
+  background:#111827;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
 
 .logo{
-font-size:23px;
-font-weight:bold;
+  font-size:23px;
+  font-weight:800;
 }
 
 .logo span{
-color:#e53935;
+  color:#ef4444;
 }
 
-nav{
-display:flex;
-gap:15px;
+.nav{
+  display:flex;
+  gap:8px;
 }
 
-nav button{
-background:none;
-border:0;
-color:white;
-font-weight:bold;
-cursor:pointer;
+.nav button{
+  background:transparent;
+  border:0;
+  color:white;
+  padding:9px 12px;
+  cursor:pointer;
+  font-size:14px;
 }
 
 .page{
-display:none;
-padding:20px;
-max-width:1100px;
-margin:auto;
+  display:none;
+  padding:25px 5% 100px;
 }
 
 .page.active{
-display:block;
+  display:block;
 }
 
 .hero{
-background:#111;
-color:white;
-border-radius:18px;
-padding:35px 22px;
-margin-bottom:20px;
+  background:linear-gradient(135deg,#111827,#374151);
+  color:white;
+  border-radius:20px;
+  padding:45px 25px;
+  text-align:center;
+  margin-bottom:25px;
 }
 
 .hero h1{
-font-size:32px;
-margin-bottom:10px;
+  font-size:36px;
+  margin-bottom:12px;
 }
 
 .hero p{
-color:#ccc;
-margin-bottom:20px;
-line-height:1.5;
-}
-
-.search-box{
-background:white;
-padding:18px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 2px 10px #ddd;
-}
-
-input,
-select{
-width:100%;
-padding:13px;
-border:1px solid #ddd;
-border-radius:10px;
-margin:6px 0 12px;
-font-size:15px;
-background:white;
-}
-
-input[type="file"]{
-padding:10px;
+  color:#d1d5db;
+  margin-bottom:22px;
 }
 
 .btn{
-border:0;
-border-radius:10px;
-padding:12px 17px;
-font-weight:bold;
-cursor:pointer;
+  border:0;
+  border-radius:10px;
+  padding:12px 18px;
+  cursor:pointer;
+  font-weight:700;
 }
 
 .red-btn{
-background:#e53935;
-color:white;
+  background:#ef4444;
+  color:white;
 }
 
 .dark-btn{
-background:#111;
-color:white;
+  background:#111827;
+  color:white;
+}
+
+.light-btn{
+  background:#e5e7eb;
+  color:#111827;
 }
 
 .green-btn{
-background:#198754;
-color:white;
+  background:#16a34a;
+  color:white;
 }
 
-.gray-btn{
-background:#eee;
-color:#111;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:16px;
-}
-
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 2px 10px #ddd;
-}
-
-.car-img{
-height:170px;
-background:#ddd;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:55px;
-}
-
-.card-body{
-padding:16px;
-}
-
-.price{
-font-size:21px;
-font-weight:bold;
-margin:8px 0;
-}
-
-.meta{
-color:#666;
-font-size:14px;
-line-height:1.7;
-}
-
-.card-actions{
-display:flex;
-gap:8px;
-margin-top:12px;
-flex-wrap:wrap;
+.yellow-btn{
+  background:#f59e0b;
+  color:white;
 }
 
 .section-title{
-margin:22px 0 12px;
+  font-size:24px;
+  margin:20px 0 15px;
 }
 
-.detail-card{
-background:white;
-padding:20px;
-border-radius:16px;
-box-shadow:0 2px 8px #ddd;
+.search-box{
+  background:white;
+  padding:18px;
+  border-radius:15px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
 }
 
-.big-price{
-font-size:30px;
-font-weight:bold;
-margin:10px 0;
+input,select{
+  width:100%;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:9px;
+  outline:none;
+  background:white;
+}
+
+.search-box input{
+  flex:1;
+  min-width:220px;
+}
+
+.search-box select{
+  width:180px;
+}
+
+.cars-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.car-card{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.car-img{
+  height:190px;
+  background:linear-gradient(135deg,#e5e7eb,#cbd5e1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+}
+
+.car-content{
+  padding:16px;
+}
+
+.car-content h3{
+  margin-bottom:8px;
+}
+
+.price{
+  color:#dc2626;
+  font-size:21px;
+  font-weight:800;
+  margin:8px 0;
+}
+
+.meta{
+  color:#6b7280;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:13px;
+  flex-wrap:wrap;
+}
+
+.actions button{
+  flex:1;
+  min-width:100px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.feature{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.feature h3{
+  margin:10px 0;
+}
+
+.form-card{
+  background:white;
+  border-radius:16px;
+  padding:20px;
+  max-width:900px;
+  margin:auto;
+  box-shadow:0 3px 15px rgba(0,0,0,.07);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+.details-card{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 3px 15px rgba(0,0,0,.07);
+}
+
+.details-top{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.big-car{
+  min-height:300px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#dbeafe,#e5e7eb);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:100px;
+}
+
+.info-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin:15px 0;
+}
+
+.info-item{
+  background:#f3f4f6;
+  padding:12px;
+  border-radius:9px;
+}
+
+.score-box{
+  background:#f0fdf4;
+  border:1px solid #86efac;
+  padding:18px;
+  border-radius:14px;
+  margin-top:20px;
 }
 
 .score{
-font-size:40px;
-font-weight:bold;
-color:#198754;
-margin:10px 0;
-}
-
-.row{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.info{
-background:#f5f6f8;
-padding:14px;
-border-radius:10px;
+  font-size:34px;
+  font-weight:800;
+  color:#16a34a;
 }
 
 .offer-box{
-background:#fff3f3;
-padding:18px;
-border-radius:14px;
-margin-top:18px;
+  background:#f9fafb;
+  border-radius:14px;
+  padding:18px;
+  margin-top:20px;
 }
 
-.success-box{
-background:#eaf8ef;
-padding:18px;
-border-radius:14px;
-margin-top:18px;
+.offer-price{
+  font-size:27px;
+  font-weight:800;
+  color:#dc2626;
+  margin:10px 0;
 }
 
-.warning-box{
-background:#fff8df;
-padding:18px;
-border-radius:14px;
-margin-top:18px;
+.message-card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+  margin-bottom:15px;
 }
 
-.document-box{
-background:#f7f7f7;
-padding:15px;
-border-radius:12px;
-margin-top:10px;
-}
-
-.status{
-font-weight:bold;
-margin-top:5px;
-}
-
-.status.green{
-color:#198754;
-}
-
-.status.yellow{
-color:#b77900;
-}
-
-.status.red{
-color:#d62828;
-}
-
-hr{
-border:0;
-border-top:1px solid #ddd;
-margin:20px 0;
+.disclaimer{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  padding:15px;
+  border-radius:12px;
+  margin-top:20px;
+  color:#7c2d12;
+  font-size:13px;
 }
 
 .bottom-nav{
-display:none;
-}
-
-.small{
-font-size:13px;
-color:#666;
-line-height:1.5;
-}
-
-.badge{
-display:inline-block;
-padding:5px 9px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-background:#eaf8ef;
-color:#198754;
-margin-top:6px;
-}
-
-@media(max-width:700px){
-
-nav{
-display:none;
-}
-
-.page{
-padding:14px;
-}
-
-.hero h1{
-font-size:26px;
-}
-
-.row{
-grid-template-columns:1fr;
-}
-
-.bottom-nav{
-display:flex;
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#111;
-color:white;
-justify-content:space-around;
-padding:9px 4px;
-z-index:200;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #ddd;
+  display:none;
+  grid-template-columns:repeat(5,1fr);
+  z-index:200;
 }
 
 .bottom-nav button{
-background:none;
-border:0;
-color:white;
-font-size:12px;
+  border:0;
+  background:white;
+  padding:10px 2px;
+  font-size:11px;
 }
 
-.page{
-padding-bottom:85px;
+.empty{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  color:#6b7280;
 }
 
+@media(max-width:850px){
+  .cars-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
+@media(max-width:650px){
+  header{
+    padding:13px 15px;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .page{
+    padding:18px 14px 90px;
+  }
+
+  .hero{
+    padding:32px 17px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  .cars-grid{
+    grid-template-columns:1fr;
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .details-top{
+    grid-template-columns:1fr;
+  }
+
+  .info-list{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .bottom-nav{
+    display:grid;
+  }
+
+  .search-box{
+    display:block;
+  }
+
+  .search-box input,
+  .search-box select,
+  .search-box button{
+    width:100%;
+    margin-bottom:9px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
+  <div class="logo">Drive<span>Deal</span></div>
 
-<div class="logo">
-Drive<span>Deal</span>
-</div>
-
-<nav>
-<button onclick="showPage('home')">Home</button>
-<button onclick="showPage('cars')">Buy Cars</button>
-<button onclick="showPage('sell')">Sell Car</button>
-<button onclick="showPage('messages')">Messages</button>
-<button onclick="showPage('profile')">Profile</button>
-</nav>
-
+  <div class="nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('cars')">Buy Cars</button>
+    <button onclick="showPage('sell')">Sell Car</button>
+    <button onclick="showPage('messages')">Messages</button>
+    <button onclick="showPage('profile')">Profile</button>
+  </div>
 </header>
 
 
 <!-- HOME -->
-
 <section id="home" class="page active">
 
-<div class="hero">
+  <div class="hero">
+    <h1>Buy Smart. Sell Smart.</h1>
+    <p>Find the right car, check its details and make a smart deal.</p>
+    <button class="btn red-btn" onclick="showPage('cars')">
+      Browse Cars
+    </button>
+  </div>
 
-<h1>Buy Smart. Sell Smart.</h1>
+  <h2 class="section-title">Find Your Car</h2>
 
-<p>
-Price समजून घ्या → Car Health तपासा → Compare करा → Bargain करा → Deal करा
-</p>
+  <div class="search-box">
+    <input
+      id="homeSearch"
+      type="text"
+      placeholder="Search Hyundai, Tata, Mahindra..."
+    >
 
-<button class="btn red-btn"
-onclick="showPage('cars')">
-Browse Cars
-</button>
+    <button class="btn dark-btn" onclick="searchFromHome()">
+      Search Cars
+    </button>
+  </div>
 
-</div>
+  <h2 class="section-title">Featured Cars</h2>
 
+  <div id="featuredCars" class="cars-grid"></div>
 
-<div class="search-box">
+  <h2 class="section-title">Why DriveDeal?</h2>
 
-<h2>Find Your Car</h2>
+  <div class="feature-grid">
 
-<input
-id="homeSearch"
-placeholder="Search Hyundai, Tata, Mahindra..."
-oninput="searchHome()"
->
+    <div class="feature">
+      <div>💰</div>
+      <h3>Smart Price</h3>
+      <p>Understand an estimated market price before buying or selling.</p>
+    </div>
 
-<button class="btn dark-btn"
-onclick="searchFromHome()">
-Search Cars
-</button>
+    <div class="feature">
+      <div>❤️</div>
+      <h3>Car Health</h3>
+      <p>See structured health information for important car components.</p>
+    </div>
 
-</div>
+    <div class="feature">
+      <div>📄</div>
+      <h3>Car Passport</h3>
+      <p>Keep important vehicle and document status together.</p>
+    </div>
 
+    <div class="feature">
+      <div>🤝</div>
+      <h3>Safe Offers</h3>
+      <p>Make structured offers without free-text contact sharing.</p>
+    </div>
 
-<h2 class="section-title">
-Featured Cars
-</h2>
+  </div>
 
-<div id="homeCars" class="grid"></div>
+  <br>
+
+  <button class="btn red-btn" onclick="showPage('sell')">
+    Sell Your Car
+  </button>
 
 </section>
-
 
 
 <!-- BUY CARS -->
-
 <section id="cars" class="page">
 
-<h2>Buy Cars</h2>
+  <h2 class="section-title">Buy Cars</h2>
 
-<div class="search-box">
+  <div class="search-box">
 
-<input
-id="carSearch"
-placeholder="Search by brand or model..."
-oninput="renderCars()"
->
+    <input
+      id="carSearch"
+      type="text"
+      placeholder="Search by brand or model..."
+      oninput="renderCars()"
+    >
 
-<div class="row">
+    <select id="fuelFilter" onchange="renderCars()">
+      <option value="">All Fuel</option>
+      <option value="Petrol">Petrol</option>
+      <option value="Diesel">Diesel</option>
+      <option value="Electric">Electric</option>
+    </select>
 
-<select id="fuelFilter"
-onchange="renderCars()">
+    <select id="transmissionFilter" onchange="renderCars()">
+      <option value="">All Transmission</option>
+      <option value="Manual">Manual</option>
+      <option value="Automatic">Automatic</option>
+    </select>
 
-<option value="">All Fuel</option>
-<option>Petrol</option>
-<option>Diesel</option>
-<option>Electric</option>
+  </div>
 
-</select>
-
-
-<select id="transFilter"
-onchange="renderCars()">
-
-<option value="">All Transmission</option>
-<option>Manual</option>
-<option>Automatic</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<div id="carsList" class="grid"></div>
+  <div id="carsGrid" class="cars-grid"></div>
 
 </section>
 
 
-
-<!-- CAR DETAILS -->
-
+<!-- DETAILS -->
 <section id="details" class="page">
 
-<button class="btn dark-btn"
-onclick="showPage('cars')">
-← Back
-</button>
+  <button class="btn light-btn" onclick="showPage('cars')">
+    ← Back to Cars
+  </button>
 
-<div id="detailsContent"
-style="margin-top:15px">
-</div>
+  <br><br>
+
+  <div id="detailsContent"></div>
 
 </section>
 
 
-
-<!-- SELL CAR -->
-
+<!-- SELL -->
 <section id="sell" class="page">
 
-<h2>Sell Your Car</h2>
-
-<div class="detail-card"
-style="margin-top:15px">
-
-
-<label>Brand</label>
-
-<input
-id="sellBrand"
-placeholder="Example: Hyundai"
->
-
-
-<label>Model</label>
-
-<input
-id="sellModel"
-placeholder="Example: Creta"
->
-
-
-<label>Year</label>
-
-<input
-id="sellYear"
-type="number"
-placeholder="2022"
->
-
-
-<label>Kilometres</label>
-
-<input
-id="sellKm"
-type="number"
-placeholder="45000"
->
-
-
-<label>Fuel</label>
-
-<select id="sellFuel">
-
-<option>Petrol</option>
-<option>Diesel</option>
-<option>Electric</option>
-
-</select>
-
-
-<label>Transmission</label>
-
-<select id="sellTrans">
-
-<option>Manual</option>
-<option>Automatic</option>
-
-</select>
-
-
-<label>Expected Price</label>
-
-<input
-id="sellPrice"
-type="number"
-placeholder="1375000"
->
-
-
-<label>City</label>
-
-<input
-id="sellCity"
-placeholder="Pune"
->
-
-
-<hr>
-
-
-<h3>Car Photos</h3>
-
-<p class="small">
-Upload clear photos of your car.
-</p>
-
-<input
-id="carPhotos"
-type="file"
-accept="image/*"
-multiple
->
-
-
-<h3 style="margin-top:18px">
-Vehicle Documents
-</h3>
-
-
-<label>RC Document</label>
-
-<input
-id="rcDocument"
-type="file"
-accept="image/*,.pdf"
->
-
-
-<label>Insurance Document</label>
-
-<input
-id="insuranceDocument"
-type="file"
-accept="image/*,.pdf"
->
-
-
-<label>PUC Document</label>
-
-<input
-id="pucDocument"
-type="file"
-accept="image/*,.pdf"
->
-
-
-<label>Service History</label>
-
-<input
-id="serviceDocument"
-type="file"
-accept="image/*,.pdf"
->
-
-
-<div class="offer-box">
-
-<h3>
-🤖 AI Document Screening
-</h3>
-
-<p style="margin-top:8px">
-
-Automated screening can check document type,
-basic fields, dates and consistency with listing information.
-
-</p>
-
-<p class="small"
-style="margin-top:8px">
-
-AI screening does not guarantee authenticity,
-ownership, legality, condition, safety or validity.
-
-</p>
-
-</div>
-
-
-<button
-class="btn red-btn"
-style="margin-top:18px"
-onclick="submitSell()">
-
-Submit Car For Review
-
-</button>
-
-
-<div id="sellResult"></div>
-
-</div>
+  <h2 class="section-title">Sell Your Car</h2>
+
+  <div class="form-card">
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Brand</label>
+        <input id="sellBrand" placeholder="Example: Hyundai">
+      </div>
+
+      <div class="form-group">
+        <label>Model</label>
+        <input id="sellModel" placeholder="Example: Creta">
+      </div>
+
+      <div class="form-group">
+        <label>Year</label>
+        <input id="sellYear" type="number" placeholder="2022">
+      </div>
+
+      <div class="form-group">
+        <label>Kilometres</label>
+        <input id="sellKm" type="number" placeholder="45000">
+      </div>
+
+      <div class="form-group">
+        <label>Fuel</label>
+        <select id="sellFuel">
+          <option>Petrol</option>
+          <option>Diesel</option>
+          <option>Electric</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Transmission</label>
+        <select id="sellTransmission">
+          <option>Manual</option>
+          <option>Automatic</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Expected Price</label>
+        <input id="sellPrice" type="number" placeholder="1375000">
+      </div>
+
+      <div class="form-group">
+        <label>City</label>
+        <input id="sellCity" placeholder="Pune">
+      </div>
+
+      <div class="form-group">
+        <label>Car Photos</label>
+        <input id="carPhotos" type="file" multiple accept="image/*">
+      </div>
+
+      <div class="form-group">
+        <label>RC Document</label>
+        <input id="rcDoc" type="file" accept=".jpg,.jpeg,.png,.pdf">
+      </div>
+
+      <div class="form-group">
+        <label>Insurance</label>
+        <input id="insuranceDoc" type="file" accept=".jpg,.jpeg,.png,.pdf">
+      </div>
+
+      <div class="form-group">
+        <label>PUC</label>
+        <input id="pucDoc" type="file" accept=".jpg,.jpeg,.png,.pdf">
+      </div>
+
+      <div class="form-group full">
+        <label>Service History</label>
+        <input id="serviceDoc" type="file" accept=".jpg,.jpeg,.png,.pdf">
+      </div>
+
+      <div class="full">
+        <button class="btn red-btn" onclick="submitCar()">
+          Submit Car
+        </button>
+      </div>
+
+    </div>
+
+    <div class="disclaimer">
+      <b>Important:</b> Uploaded documents are currently handled only as
+      frontend/demo inputs. Real secure document storage, authentication,
+      AI verification and access control require a backend and secure storage.
+    </div>
+
+  </div>
 
 </section>
 
 
-
-<!-- MESSAGES / OFFERS -->
-
+<!-- MESSAGES -->
 <section id="messages" class="page">
 
-<h2>Messages & Offers</h2>
+  <h2 class="section-title">Messages & Offers</h2>
 
-<div class="detail-card"
-style="margin-top:15px">
+  <div class="message-card">
 
-<h3>
-Structured Communication
-</h3>
+    <h3>Deal Communication</h3>
 
-<p class="small"
-style="margin-top:8px">
+    <p style="margin:12px 0;color:#6b7280;">
+      Use structured offers instead of sharing personal contact details.
+    </p>
 
-No personal phone number sharing.
-Use predefined actions and offers.
+    <button class="btn red-btn" onclick="openOfferFromMessage()">
+      Make Offer
+    </button>
 
-</p>
+  </div>
 
-
-<div id="offerResult"
-style="margin-top:18px">
-
-<p>
-Select a car and use <b>Make Offer</b>.
-</p>
-
-</div>
-
-</div>
+  <div id="dealBox"></div>
 
 </section>
-
 
 
 <!-- PROFILE -->
-
 <section id="profile" class="page">
 
-<h2>My Profile</h2>
+  <h2 class="section-title">My Profile</h2>
 
-<div class="detail-card"
-style="margin-top:15px">
+  <div class="form-card">
 
-<h3>
-DriveDeal User
-</h3>
+    <h2>DriveDeal User</h2>
 
-<span class="badge">
-Buyer / Seller
-</span>
+    <p style="color:#6b7280;margin:8px 0 20px;">
+      Buyer / Seller
+    </p>
 
+    <hr><br>
 
-<hr>
+    <p>❤️ Saved Cars</p>
+    <br>
+    <p>🚗 My Listings</p>
+    <br>
+    <p>💬 My Offers</p>
+    <br>
+    <p>🤝 My Deals</p>
 
-
-<p>🚗 My Listings</p>
-
-<p style="margin-top:12px">
-❤️ Saved Cars
-</p>
-
-<p style="margin-top:12px">
-💰 My Offers
-</p>
-
-<p style="margin-top:12px">
-🤝 My Deals
-</p>
-
-<p style="margin-top:12px">
-📄 My Documents
-</p>
-
-</div>
+  </div>
 
 </section>
 
 
-
 <!-- MOBILE NAV -->
-
 <div class="bottom-nav">
 
-<button onclick="showPage('home')">
-🏠
-<br>
-Home
-</button>
+  <button onclick="showPage('home')">
+    🏠<br>Home
+  </button>
 
-<button onclick="showPage('cars')">
-🚗
-<br>
-Search
-</button>
+  <button onclick="showPage('cars')">
+    🚗<br>Search
+  </button>
 
-<button onclick="showPage('sell')">
-➕
-<br>
-Sell
-</button>
+  <button onclick="showPage('sell')">
+    ➕<br>Sell
+  </button>
 
-<button onclick="showPage('messages')">
-💬
-<br>
-Messages
-</button>
+  <button onclick="showPage('messages')">
+    💬<br>Messages
+  </button>
 
-<button onclick="showPage('profile')">
-👤
-<br>
-Profile
-</button>
+  <button onclick="showPage('profile')">
+    👤<br>Profile
+  </button>
 
 </div>
-
 
 
 <script>
 
-
 /* =========================
-   CAR DATA
+   CAR DATABASE
 ========================= */
 
 const cars = [
 
-{
-id:1,
-brand:"Hyundai",
-model:"Creta",
-year:2022,
-km:45000,
-fuel:"Diesel",
-trans:"Automatic",
-price:1375000,
-city:"Pune",
-health:87,
-smartPrice:"₹13.2L - ₹14.1L"
-},
+  {
+    id:1,
+    brand:"Hyundai",
+    model:"Creta",
+    year:2022,
+    km:45000,
+    fuel:"Diesel",
+    transmission:"Automatic",
+    price:1375000,
+    city:"Pune",
+    health:87,
+    engine:92,
+    gearbox:88,
+    tyres:75,
+    battery:80,
+    brakes:85,
+    suspension:82,
+    exterior:86,
+    interior:90,
+    verified:true
+  },
 
-{
-id:2,
-brand:"Tata",
-model:"Nexon",
-year:2023,
-km:28000,
-fuel:"Petrol",
-trans:"Manual",
-price:920000,
-city:"Pune",
-health:91,
-smartPrice:"₹8.8L - ₹9.5L"
-},
+  {
+    id:2,
+    brand:"Tata",
+    model:"Nexon",
+    year:2023,
+    km:28000,
+    fuel:"Petrol",
+    transmission:"Manual",
+    price:920000,
+    city:"Pune",
+    health:89,
+    engine:93,
+    gearbox:90,
+    tyres:82,
+    battery:88,
+    brakes:86,
+    suspension:85,
+    exterior:90,
+    interior:88,
+    verified:true
+  },
 
-{
-id:3,
-brand:"Mahindra",
-model:"XUV700",
-year:2023,
-km:32000,
-fuel:"Diesel",
-trans:"Automatic",
-price:1650000,
-city:"Pune",
-health:89,
-smartPrice:"₹15.8L - ₹17.2L"
-},
+  {
+    id:3,
+    brand:"Mahindra",
+    model:"XUV700",
+    year:2023,
+    km:32000,
+    fuel:"Diesel",
+    transmission:"Automatic",
+    price:1650000,
+    city:"Pune",
+    health:91,
+    engine:95,
+    gearbox:92,
+    tyres:84,
+    battery:90,
+    brakes:91,
+    suspension:89,
+    exterior:92,
+    interior:90,
+    verified:true
+  },
 
-{
-id:4,
-brand:"Maruti Suzuki",
-model:"Brezza",
-year:2022,
-km:35000,
-fuel:"Petrol",
-trans:"Automatic",
-price:980000,
-city:"Pune",
-health:90,
-smartPrice:"₹9.4L - ₹10.2L"
-},
+  {
+    id:4,
+    brand:"Maruti Suzuki",
+    model:"Brezza",
+    year:2022,
+    km:35000,
+    fuel:"Petrol",
+    transmission:"Manual",
+    price:980000,
+    city:"Pune",
+    health:86,
+    engine:90,
+    gearbox:88,
+    tyres:80,
+    battery:85,
+    brakes:84,
+    suspension:81,
+    exterior:87,
+    interior:85,
+    verified:true
+  },
 
-{
-id:5,
-brand:"Hyundai",
-model:"Verna",
-year:2023,
-km:22000,
-fuel:"Petrol",
-trans:"Automatic",
-price:1450000,
-city:"Pune",
-health:92,
-smartPrice:"₹13.9L - ₹15.0L"
-},
+  {
+    id:5,
+    brand:"Hyundai",
+    model:"Verna",
+    year:2023,
+    km:22000,
+    fuel:"Petrol",
+    transmission:"Automatic",
+    price:1250000,
+    city:"Pune",
+    health:90,
+    engine:94,
+    gearbox:92,
+    tyres:86,
+    battery:90,
+    brakes:88,
+    suspension:87,
+    exterior:91,
+    interior:92,
+    verified:true
+  },
 
-{
-id:6,
-brand:"Tata",
-model:"Punch EV",
-year:2024,
-km:12000,
-fuel:"Electric",
-trans:"Automatic",
-price:1250000,
-city:"Pune",
-health:94,
-smartPrice:"₹12.0L - ₹13.0L"
-}
+  {
+    id:6,
+    brand:"Tata",
+    model:"Punch EV",
+    year:2024,
+    km:12000,
+    fuel:"Electric",
+    transmission:"Automatic",
+    price:1180000,
+    city:"Pune",
+    health:93,
+    engine:95,
+    gearbox:94,
+    tyres:90,
+    battery:96,
+    brakes:91,
+    suspension:90,
+    exterior:94,
+    interior:92,
+    verified:true
+  }
 
 ];
 
-
 let currentCar = null;
-
+let currentOffer = 0;
 
 
 /* =========================
@@ -876,1021 +885,322 @@ let currentCar = null;
 
 function showPage(pageId){
 
-document.querySelectorAll(".page")
-.forEach(function(page){
+  document.querySelectorAll(".page").forEach(function(page){
+    page.classList.remove("active");
+  });
 
-page.classList.remove("active");
+  const page = document.getElementById(pageId);
 
-});
+  if(page){
+    page.classList.add("active");
+  }
 
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
-const page =
-document.getElementById(pageId);
+  if(pageId === "cars"){
+    renderCars();
+  }
 
-
-if(page){
-
-page.classList.add("active");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-if(pageId === "cars"){
-
-renderCars();
+  if(pageId === "home"){
+    renderFeatured();
+  }
 
 }
-
-}
-
 
 
 /* =========================
-   MONEY
+   MONEY FORMAT
 ========================= */
 
 function money(value){
 
-return "₹" +
-Number(value).toLocaleString("en-IN");
+  return "₹" + Number(value).toLocaleString("en-IN");
 
 }
 
 
-
 /* =========================
-   HOME
+   CAR CARD
 ========================= */
 
-function renderHome(){
+function carCard(car){
 
-const box =
-document.getElementById("homeCars");
+  return `
 
-if(!box) return;
+    <div class="car-card">
 
-box.innerHTML = "";
+      <div class="car-img">
+        🚗
+      </div>
 
+      <div class="car-content">
 
-cars.slice(0,4).forEach(function(car){
+        <h3>${car.brand} ${car.model}</h3>
 
-box.innerHTML += `
+        <div class="price">
+          ${money(car.price)}
+        </div>
 
-<div class="card">
+        <div class="meta">
+          ${car.year} • ${car.km.toLocaleString("en-IN")} km<br>
+          ${car.fuel} • ${car.transmission}<br>
+          📍 ${car.city}
+        </div>
 
-<div class="car-img">
-🚗
-</div>
+        <div class="actions">
 
-<div class="card-body">
+          <button
+            class="btn dark-btn"
+            onclick="openDetails(${car.id})"
+          >
+            View Details
+          </button>
 
-<h3>
-${car.brand} ${car.model}
-</h3>
+          <button
+            class="btn light-btn"
+            onclick="saveCar(${car.id})"
+          >
+            ❤️ Save
+          </button>
 
-<div class="price">
-${money(car.price)}
-</div>
+        </div>
 
-<div class="meta">
+      </div>
 
-${car.year}
-•
-${car.km.toLocaleString("en-IN")} km
-<br>
+    </div>
 
-${car.fuel}
-•
-${car.trans}
-<br>
-
-📍 ${car.city}
-
-</div>
-
-<button
-class="btn dark-btn"
-style="margin-top:12px"
-onclick="openDetails(${car.id})">
-
-View Details
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
+  `;
 
 }
-
-
-
-function searchHome(){
-
-const value =
-document.getElementById("homeSearch").value;
-
-document.getElementById("carSearch").value =
-value;
-
-}
-
-
-
-function searchFromHome(){
-
-showPage("cars");
-
-renderCars();
-
-}
-
 
 
 /* =========================
-   BUY CARS
+   RENDER CARS
 ========================= */
 
 function renderCars(){
 
-const list =
-document.getElementById("carsList");
+  const grid = document.getElementById("carsGrid");
 
-if(!list) return;
+  if(!grid){
+    return;
+  }
 
+  const searchInput = document.getElementById("carSearch");
 
-const search =
-(document.getElementById("carSearch").value || "")
-.toLowerCase();
+  const fuelInput = document.getElementById("fuelFilter");
 
-const fuel =
-document.getElementById("fuelFilter").value;
+  const transmissionInput =
+    document.getElementById("transmissionFilter");
 
-const trans =
-document.getElementById("transFilter").value;
+  const search =
+    searchInput
+    ? searchInput.value.trim().toLowerCase()
+    : "";
 
+  const fuel =
+    fuelInput
+    ? fuelInput.value
+    : "";
 
-const filtered =
-cars.filter(function(car){
+  const transmission =
+    transmissionInput
+    ? transmissionInput.value
+    : "";
 
-const text =
-(car.brand + " " + car.model)
-.toLowerCase();
+  const filtered = cars.filter(function(car){
 
+    const text =
+      (car.brand + " " + car.model + " " + car.city)
+      .toLowerCase();
 
-return text.includes(search)
+    const matchSearch =
+      !search || text.includes(search);
 
-&&
+    const matchFuel =
+      !fuel || car.fuel === fuel;
 
-(!fuel || car.fuel === fuel)
+    const matchTransmission =
+      !transmission ||
+      car.transmission === transmission;
 
-&&
+    return (
+      matchSearch &&
+      matchFuel &&
+      matchTransmission
+    );
 
-(!trans || car.trans === trans);
+  });
 
-});
+  if(filtered.length === 0){
 
+    grid.innerHTML = `
+      <div class="empty">
+        <h3>No cars found</h3>
+        <p>Try another brand, model or filter.</p>
+      </div>
+    `;
 
-list.innerHTML = "";
+    return;
+  }
 
-
-if(filtered.length === 0){
-
-list.innerHTML = `
-
-<div class="detail-card">
-
-<h3>No cars found</h3>
-
-<p style="margin-top:8px">
-Try another brand or model.
-</p>
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-filtered.forEach(function(car){
-
-list.innerHTML += `
-
-<div class="card">
-
-<div class="car-img">
-🚗
-</div>
-
-<div class="card-body">
-
-<h3>
-${car.brand} ${car.model}
-</h3>
-
-<div class="price">
-${money(car.price)}
-</div>
-
-<div class="meta">
-
-${car.year}
-•
-${car.km.toLocaleString("en-IN")} km
-<br>
-
-${car.fuel}
-•
-${car.trans}
-<br>
-
-📍 ${car.city}
-
-</div>
-
-<div class="card-actions">
-
-<button
-class="btn dark-btn"
-onclick="openDetails(${car.id})">
-
-View Details
-
-</button>
-
-
-<button
-class="btn red-btn"
-onclick="makeOffer(${car.id})">
-
-Make Offer
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-});
+  grid.innerHTML =
+    filtered.map(carCard).join("");
 
 }
-
 
 
 /* =========================
-   CAR DETAILS
+   FEATURED
+========================= */
+
+function renderFeatured(){
+
+  const box =
+    document.getElementById("featuredCars");
+
+  if(!box){
+    return;
+  }
+
+  box.innerHTML =
+    cars.slice(0,3)
+    .map(carCard)
+    .join("");
+
+}
+
+
+/* =========================
+   SEARCH FROM HOME
+========================= */
+
+function searchFromHome(){
+
+  const value =
+    document.getElementById("homeSearch").value;
+
+  showPage("cars");
+
+  document.getElementById("carSearch").value =
+    value;
+
+  renderCars();
+
+}
+
+
+/* =========================
+   DETAILS
 ========================= */
 
 function openDetails(id){
 
-currentCar =
-cars.find(function(car){
+  currentCar =
+    cars.find(function(car){
+      return car.id === id;
+    });
 
-return car.id === id;
+  if(!currentCar){
+    return;
+  }
 
-});
+  const car = currentCar;
 
+  const details =
+    document.getElementById("detailsContent");
 
-if(!currentCar) return;
+  details.innerHTML = `
 
+    <div class="details-card">
 
-const c = currentCar;
+      <div class="details-top">
 
+        <div class="big-car">
+          🚗
+        </div>
 
-document.getElementById("detailsContent")
-.innerHTML = `
+        <div>
 
-<div class="detail-card">
+          <h1>
+            ${car.brand} ${car.model}
+          </h1>
 
+          <div class="price">
+            ${money(car.price)}
+          </div>
 
-<div class="car-img"
-style="height:230px;border-radius:12px">
+          <p class="meta">
+            📍 ${car.city}
+          </p>
 
-🚗
+          <div class="info-list">
 
-</div>
+            <div class="info-item">
+              <b>Year</b><br>${car.year}
+            </div>
 
+            <div class="info-item">
+              <b>Kilometres</b><br>
+              ${car.km.toLocaleString("en-IN")} km
+            </div>
 
-<h1 style="margin-top:18px">
+            <div class="info-item">
+              <b>Fuel</b><br>${car.fuel}
+            </div>
 
-${c.brand} ${c.model}
+            <div class="info-item">
+              <b>Transmission</b><br>${car.transmission}
+            </div>
 
-</h1>
+          </div>
 
+          <div class="actions">
 
-<div class="big-price">
+            <button
+              class="btn red-btn"
+              onclick="startOffer(${car.id})"
+            >
+              Make Offer
+            </button>
 
-${money(c.price)}
+            <button
+              class="btn dark-btn"
+              onclick="testDrive()"
+            >
+              Ask Test Drive
+            </button>
 
-</div>
+            <button
+              class="btn light-btn"
+              onclick="saveCar(${car.id})"
+            >
+              ❤️ Save
+            </button>
 
+          </div>
 
-<span class="badge">
-✓ Verified Listing
-</span>
+        </div>
 
+      </div>
 
-<div class="row"
-style="margin-top:18px">
 
+      <div class="score-box">
 
-<div class="info">
+        <h2>Car Health Score</h2>
 
-<b>Year</b>
+        <div class="score">
+          ${car.health}%
+        </div>
 
-<br>
+        <p>Inspection: Verified</p>
 
-${c.year}
+        <br>
 
-</div>
-
-
-<div class="info">
-
-<b>Kilometres</b>
-
-<br>
-
-${c.km.toLocaleString("en-IN")} km
-
-</div>
-
-
-<div class="info">
-
-<b>Fuel</b>
-
-<br>
-
-${c.fuel}
-
-</div>
-
-
-<div class="info">
-
-<b>Transmission</b>
-
-<br>
-
-${c.trans}
-
-</div>
-
-
-<div class="info">
-
-<b>Location</b>
-
-<br>
-
-${c.city}
-
-</div>
-
-
-<div class="info">
-
-<b>Seller</b>
-
-<br>
-
-Verified Seller
-
-</div>
-
-
-</div>
-
-
-
-<!-- HEALTH -->
-
-<div class="success-box">
-
-<h2>
-Car Health Score
-</h2>
-
-<div class="score">
-${c.health}%
-</div>
-
-<p>
-Overall indicative health score based on available vehicle/inspection information.
-</p>
-
-<div class="row"
-style="margin-top:15px">
-
-<div class="info">
-Engine<br>
-<b>92%</b>
-</div>
-
-<div class="info">
-Gearbox<br>
-<b>88%</b>
-</div>
-
-<div class="info">
-Tyres<br>
-<b>82%</b>
-</div>
-
-<div class="info">
-Brakes<br>
-<b>85%</b>
-</div>
-
-<div class="info">
-Suspension<br>
-<b>84%</b>
-</div>
-
-<div class="info">
-Interior<br>
-<b>90%</b>
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- SMART PRICE -->
-
-<div class="offer-box">
-
-<h2>
-Smart Price
-</h2>
-
-<h3 style="margin-top:10px">
-
-${c.smartPrice}
-
-</h3>
-
-<p style="margin-top:8px">
-
-Estimated market range based on vehicle details and comparable listings.
-
-</p>
-
-</div>
-
-
-
-<!-- CAR PASSPORT -->
-
-<div class="document-box">
-
-<h2>
-📘 Car Passport
-</h2>
-
-<p class="status green">
-🟢 RC Status: Verified
-</p>
-
-<p class="status green">
-🟢 Insurance: Valid
-</p>
-
-<p class="status green">
-🟢 Service History: Available
-</p>
-
-<p class="status yellow">
-🟡 Loan/NOC: Check before deal
-</p>
-
-<p class="status green">
-🟢 Documents: 3/3 Required Verified
-</p>
-
-</div>
-
-
-
-<!-- DOCUMENT DISCLAIMER -->
-
-<div class="warning-box">
-
-<h3>
-⚠ Verification Notice
-</h3>
-
-<p class="small"
-style="margin-top:8px">
-
-AI-based document and vehicle checks are automated screening tools.
-They do not guarantee authenticity, accuracy, legality, ownership,
-condition, safety or validity.
-
-Buyer and seller should independently verify information before completing a transaction.
-
-</p>
-
-</div>
-
-
-
-<!-- ACTIONS -->
-
-<div style="
-display:flex;
-gap:10px;
-margin-top:18px;
-flex-wrap:wrap;
-">
-
-
-<button
-class="btn red-btn"
-onclick="makeOffer(${c.id})">
-
-Make Offer
-
-</button>
-
-
-<button
-class="btn dark-btn"
-onclick="testDrive()">
-
-Ask Test Drive
-
-</button>
-
-
-<button
-class="btn green-btn"
-onclick="interest()">
-
-I'm Interested
-
-</button>
-
-
-<button
-class="btn gray-btn"
-onclick="showPage('messages')">
-
-Ask Car Details
-
-</button>
-
-</div>
-
-
-</div>
-
-`;
-
-
-
-showPage("details");
-
-}
-
-
-
-/* =========================
-   OFFER
-========================= */
-
-function makeOffer(id){
-
-if(id){
-
-currentCar =
-cars.find(function(car){
-
-return car.id === id;
-
-});
-
-}
-
-
-if(!currentCar){
-
-currentCar = cars[0];
-
-}
-
-
-const box =
-document.getElementById("offerResult");
-
-
-box.innerHTML = `
-
-<div class="offer-box">
-
-<h3>
-Make Offer
-</h3>
-
-<p style="margin-top:8px">
-
-${currentCar.brand}
-${currentCar.model}
-
-</p>
-
-<p class="small"
-style="margin-top:5px">
-
-Listed Price:
-<b>${money(currentCar.price)}</b>
-
-</p>
-
-
-<label style="display:block;margin-top:15px">
-
-Select Offer Price
-
-</label>
-
-
-<select id="offerAmount">
-
-<option value="">
-Select Offer Price
-</option>
-
-<option value="650000">
-₹6,50,000
-</option>
-
-<option value="670000">
-₹6,70,000
-</option>
-
-<option value="700000">
-₹7,00,000
-</option>
-
-<option value="750000">
-₹7,50,000
-</option>
-
-<option value="800000">
-₹8,00,000
-</option>
-
-<option value="850000">
-₹8,50,000
-</option>
-
-<option value="900000">
-₹9,00,000
-</option>
-
-</select>
-
-
-<button
-class="btn red-btn"
-onclick="sendOffer()">
-
-Send Offer
-
-</button>
-
-</div>
-
-`;
-
-
-showPage("messages");
-
-}
-
-
-
-/* =========================
-   SEND OFFER
-========================= */
-
-function sendOffer(){
-
-const amount =
-document.getElementById("offerAmount").value;
-
-
-if(!amount){
-
-alert("Please select an offer price.");
-
-return;
-
-}
-
-
-document.getElementById("offerResult")
-.innerHTML = `
-
-<div class="success-box">
-
-<h3>
-✓ Offer Sent
-</h3>
-
-<p style="margin-top:8px">
-
-Offer Amount:
-<b>${money(amount)}</b>
-
-</p>
-
-<p class="small"
-style="margin-top:8px">
-
-Seller can Accept, Reject or Counter your offer.
-
-</p>
-
-
-<div style="
-display:flex;
-gap:8px;
-margin-top:15px;
-flex-wrap:wrap;
-">
-
-
-<button
-class="btn green-btn"
-onclick="dealConfirmed()">
-
-Accept
-
-</button>
-
-
-<button
-class="btn dark-btn"
-onclick="counterOffer()">
-
-Counter
-
-</button>
-
-
-<button
-class="btn red-btn"
-onclick="rejectOffer()">
-
-Reject
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-
-/* =========================
-   COUNTER
-========================= */
-
-function counterOffer(){
-
-document.getElementById("offerResult")
-.innerHTML += `
-
-<div class="offer-box">
-
-<h3>
-Seller Counter Offer
-</h3>
-
-<h2 style="margin:10px 0">
-₹6,70,000
-</h2>
-
-<p class="small">
-
-Seller has proposed a counter offer.
-
-</p>
-
-
-<div style="
-display:flex;
-gap:8px;
-margin-top:12px;
-flex-wrap:wrap;
-">
-
-
-<button
-class="btn green-btn"
-onclick="dealConfirmed()">
-
-Accept Counter Offer
-
-</button>
-
-
-<button
-class="btn red-btn"
-onclick="rejectOffer()">
-
-Reject
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-
-/* =========================
-   REJECT
-========================= */
-
-function rejectOffer(){
-
-document.getElementById("offerResult")
-.innerHTML = `
-
-<div class="warning-box">
-
-<h3>
-Offer Rejected
-</h3>
-
-<p style="margin-top:8px">
-
-You can make another offer.
-
-</p>
-
-
-<button
-class="btn dark-btn"
-style="margin-top:12px"
-onclick="makeOffer()">
-
-Make New Offer
-
-</button>
-
-</div>
-
-`;
-
-}
-
-
-
-/* =========================
-   DEAL CONFIRMED
-========================= */
-
-function dealConfirmed(){
-
-const dealAmount = 670000;
-
-const commission =
-dealAmount * 0.01;
-
-
-document.getElementById("offerResult")
-.innerHTML = `
-
-<div class="success-box">
-
-<h2>
-🎉 Deal Confirmed
-</h2>
-
-<h1 style="margin:12px 0">
-${money(dealAmount)}
-</h1>
-
-<p>
-Platform Commission: <b>1%</b>
-</p>
-
-<p style="margin-top:8px">
-
-Commission Amount:
-<b>${money(commission)}</b>
-
-</p>
-
-
-<p class="small"
-style="margin-top:12px">
-
-Transaction conditions and applicable fees should be reviewed before payment.
-
-</p>
-
-
-<button
-class="btn green-btn"
-style="margin-top:15px"
-onclick="paymentDone()">
-
-Mark Payment Done
-
-</button>
-
-</div>
-
-`;
-
-}
-
-
-
-/* =========================
-   PAYMENT
-========================= */
-
-function paymentDone(){
-
-document.getElementById("offerResult")
-.innerHTML = `
-
-<div class="success-box">
-
-<h2>
-✓ Payment Recorded
-</h2>
-
-<p style="margin-top:10px">
-
-Commission:
-<b>₹6,700</b>
-
-</p>
-
-<p style="margin-top:8px">
-
-Deal Status:
-<b>Completed</b>
-
-</p>
-
-<div class="badge"
-style="margin-top:15px">
-
-SOLD
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-
-/* =========================
-   SELL
-========================= */
-
-function submitSell(){
-
-const brand =
-document.getElementById("sellBrand").value.trim();
-
-const model =
-document.getElementBy
+        <p>
+          Engine: ${car.engine}% |
+          Gearbox: ${car.gearbox}% |
+     
