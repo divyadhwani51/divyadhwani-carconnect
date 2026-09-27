@@ -17,6 +17,7 @@
     body {
       background: #f5f7fa;
       color: #111827;
+      padding-bottom: 70px;
     }
 
     header {
@@ -74,6 +75,7 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       margin-bottom: 10px;
+      font-size: 16px;
     }
 
     .search-btn {
@@ -194,6 +196,7 @@
     }
 
     @media (max-width: 600px) {
+
       .hero h1 {
         font-size: 28px;
       }
@@ -226,190 +229,383 @@
 <body>
 
 <header>
-  <div class="logo">DriveDeal</div>
-  <button class="login">Login</button>
+
+  <div class="logo">
+    DriveDeal
+  </div>
+
+  <button class="login">
+    Login
+  </button>
+
 </header>
 
+
 <section class="hero">
-  <h1>Buy Smart. Sell Smart.</h1>
-  <p>Find the right car at the right price.</p>
+
+  <h1>
+    Buy Smart. Sell Smart.
+  </h1>
+
+  <p>
+    Find the right car at the right price.
+  </p>
 
   <div class="search-box">
-    <input type="text" placeholder="Search brand, model or location">
-    <button class="search-btn">Search Cars</button>
-  </div>
-</section>
 
-<section class="section">
-  <h2>Featured Cars</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="car-image">🚗</div>
-      <h3>Hyundai Creta</h3>
-      <div class="price">₹13,75,000</div>
-      <div class="details">
-        2022 • 45,000 km • Diesel • Automatic
-      </div>
-      <button class="view-btn">View Car</button>
-    </div>
-
-    <div class="card">
-      <div class="car-image">🚙</div>
-      <h3>Tata Nexon</h3>
-      <div class="price">₹9,20,000</div>
-      <div class="details">
-        2023 • 28,000 km • Petrol • Manual
-      </div>
-      <button class="view-btn">View Car</button>
-    </div>
-
-    <div class="card">
-      <div class="car-image">🚘</div>
-      <h3>Mahindra XUV700</h3>
-      <div class="price">₹16,50,000</div>
-      <div class="details">
-        2023 • 32,000 km • Diesel • Automatic
-      </div>
-      <button class="view-btn">View Car</button>
-    </div>
-
-  </div>
-</section>
-
-<section class="section">
-
-  <h2>Why DriveDeal?</h2>
-
-  <div class="features">
-
-    <div class="feature">
-      <h3>💰 Smart Price</h3>
-      <p>Get an estimated market price before buying or selling.</p>
-    </div>
-
-    <div class="feature">
-      <h3>❤️ Car Health Score</h3>
-      <p>Understand the condition of important vehicle components.</p>
-    </div>
-
-    <div class="feature">
-      <h3>📄 AI Document Check</h3>
-      <p>AI screening helps identify possible document mismatches.</p>
-    </div>
-
-    <div class="feature">
-      <h3>🤝 Safe Offers</h3>
-      <p>Make and negotiate offers inside the platform.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section">
-
-  <div class="sell-box">
-
-    <h2>Sell Your Car</h2>
-
-    <p>
-      List your car, get a smart price suggestion
-      and connect with interested buyers.
-    </p>
-
-    <button class="sell-btn">Sell My Car</button>
-
-  </div>
-
-</section>
-
-<footer>
-  <p>© 2026 DriveDeal</p>
-  <p>Buy Smart. Sell Smart.</p>
-
-</footer>
-
-<div class="bottom-nav">
-
-  <span>🏠<br>Home</span>
-  <span>🔎<br>Search</span>
-  <span>➕<br>Sell</span>
-  <span>💬<br>Messages</span>
-  <span>👤<br>Profile</span>
-
-</div>
-<section class="section" id="buy-cars">
-
-  <h2>Buy Cars</h2>
-
-  <div class="search-box">
     <input
       type="text"
-      id="carSearch"
-      placeholder="Search car, brand or model"
-      onkeyup="searchCars()"
+      id="mainSearch"
+      placeholder="Search brand, model or location"
     >
+
+    <button
+      class="search-btn"
+      onclick="goToBuyCars()"
+    >
+      Search Cars
+    </button>
+
+  </div>
+
+</section>
+
+
+<section class="section" id="buy-cars">
+
+  <h2>
+    Buy Cars
+  </h2>
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="carsSearch"
+      placeholder="Search car, brand or model"
+      oninput="searchCars()"
+    >
+
   </div>
 
   <br>
 
   <div class="cards" id="carList">
 
-    <div class="card" data-name="hyundai creta">
-      <div class="car-image">🚗</div>
-      <h3>Hyundai Creta</h3>
-      <div class="price">₹13,75,000</div>
+
+    <div
+      class="card"
+      data-name="hyundai creta"
+    >
+
+      <div class="car-image">
+        🚗
+      </div>
+
+      <h3>
+        Hyundai Creta
+      </h3>
+
+      <div class="price">
+        ₹13,75,000
+      </div>
+
       <div class="details">
         2022 • 45,000 km • Diesel • Automatic • Pune
       </div>
-      <button class="view-btn" onclick="viewCar('Hyundai Creta')">
+
+      <button
+        class="view-btn"
+        onclick="viewCar('Hyundai Creta')"
+      >
         View Details
       </button>
+
     </div>
 
-    <div class="card" data-name="tata nexon">
-      <div class="car-image">🚙</div>
-      <h3>Tata Nexon</h3>
-      <div class="price">₹9,20,000</div>
+
+    <div
+      class="card"
+      data-name="tata nexon"
+    >
+
+      <div class="car-image">
+        🚙
+      </div>
+
+      <h3>
+        Tata Nexon
+      </h3>
+
+      <div class="price">
+        ₹9,20,000
+      </div>
+
       <div class="details">
         2023 • 28,000 km • Petrol • Manual • Pune
       </div>
-      <button class="view-btn" onclick="viewCar('Tata Nexon')">
+
+      <button
+        class="view-btn"
+        onclick="viewCar('Tata Nexon')"
+      >
         View Details
       </button>
+
     </div>
 
-    <div class="card" data-name="mahindra xuv700">
-      <div class="car-image">🚘</div>
-      <h3>Mahindra XUV700</h3>
-      <div class="price">₹16,50,000</div>
+
+    <div
+      class="card"
+      data-name="mahindra xuv700"
+    >
+
+      <div class="car-image">
+        🚘
+      </div>
+
+      <h3>
+        Mahindra XUV700
+      </h3>
+
+      <div class="price">
+        ₹16,50,000
+      </div>
+
       <div class="details">
         2023 • 32,000 km • Diesel • Automatic • Pune
       </div>
-      <button class="view-btn" onclick="viewCar('Mahindra XUV700')">
+
+      <button
+        class="view-btn"
+        onclick="viewCar('Mahindra XUV700')"
+      >
         View Details
       </button>
+
     </div>
+
 
   </div>
 
 </section>
 
+
+<section class="section">
+
+  <h2>
+    Why DriveDeal?
+  </h2>
+
+  <div class="features">
+
+
+    <div class="feature">
+
+      <h3>
+        💰 Smart Price
+      </h3>
+
+      <p>
+        Get an estimated market price before buying or selling.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <h3>
+        ❤️ Car Health Score
+      </h3>
+
+      <p>
+        Understand the condition of important vehicle components.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <h3>
+        📄 AI Document Check
+      </h3>
+
+      <p>
+        AI screening helps identify possible document mismatches.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <h3>
+        🤝 Safe Offers
+      </h3>
+
+      <p>
+        Make and negotiate offers inside the platform.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="sell-box">
+
+    <h2>
+      Sell Your Car
+    </h2>
+
+    <p>
+      List your car, get a smart price suggestion
+      and connect with interested buyers.
+    </p>
+
+    <button
+      class="sell-btn"
+      onclick="sellCar()"
+    >
+      Sell My Car
+    </button>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <p>
+    © 2026 DriveDeal
+  </p>
+
+  <p>
+    Buy Smart. Sell Smart.
+  </p>
+
+</footer>
+
+
+<div class="bottom-nav">
+
+  <span onclick="goHome()">
+    🏠<br>Home
+  </span>
+
+  <span onclick="goToBuyCars()">
+    🔎<br>Search
+  </span>
+
+  <span onclick="sellCar()">
+    ➕<br>Sell
+  </span>
+
+  <span>
+    💬<br>Messages
+  </span>
+
+  <span>
+    👤<br>Profile
+  </span>
+
+</div>
+
+
 <script>
-if (carName.includes(searchText)) {
-      car.style.display = "block";
+
+function searchCars() {
+
+  var input = document.getElementById("carsSearch");
+
+  if (!input) {
+    return;
+  }
+
+  var searchText = input.value.toLowerCase().trim();
+
+  var cars = document.querySelectorAll("#carList .card");
+
+  cars.forEach(function(car) {
+
+    var carName = car
+      .getAttribute("data-name")
+      .toLowerCase();
+
+    if (searchText === "" || carName.includes(searchText)) {
+
+      car.style.display = "";
+
     } else {
+
       car.style.display = "none";
+
     }
 
   });
+
 }
 
-function viewCar(carName) {
-  alert(carName + " details will open here.");
+
+function goToBuyCars() {
+
+  var mainSearch =
+    document.getElementById("mainSearch").value
+    .toLowerCase()
+    .trim();
+
+  var buyCars =
+    document.getElementById("buy-cars");
+
+  buyCars.scrollIntoView({
+    behavior: "smooth"
+  });
+
+  document.getElementById("carsSearch").value =
+    mainSearch;
+
+  searchCars();
+
 }
+
+
+function viewCar(carName) {
+
+  alert(
+    carName +
+    " details will open here."
+  );
+
+}
+
+
+function sellCar() {
+
+  alert(
+    "Sell Car feature will open here."
+  );
+
+}
+
+
+function goHome() {
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
 </script>
+
 </body>
 </html>
